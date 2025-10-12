@@ -5,12 +5,12 @@
 // ============================================
 let config = window.BUSINESS_CONFIG || {
     businessName: "TradieSpark",
-    phone: "0412345678",
-    phoneDisplay: "0412 345 678",
+    phone: "0483838090",
+    phoneDisplay: "0483 838 090",
     email: "hello@tradiespark.com.au",
-    abn: "12 345 678 901",
-    licence: "123456",
-    serviceAreas: ["Parramatta", "Blacktown", "Penrith", "All of Sydney"],
+    abn: "72 847 046 578",
+    licence: "Building websites for tradies",
+    serviceAreas: ["Parramatta", "Blacktown", "Penrith", "Liverpool", "Campbelltown", "All of Sydney"],
     formBackend: "formspree",
     formspreeCode: "YOUR_FORMSPREE_ID",
     googleAnalyticsID: "G-XXXXXXXXXX",
@@ -40,8 +40,13 @@ function populateBusinessInfo() {
     const phoneElements = document.querySelectorAll('#headerCallBtn, #mobileCTA, #footerPhone');
     phoneElements.forEach(el => {
         el.href = `tel:${config.phone}`;
-        if (el.textContent.includes('0')) {
-            el.textContent = el.textContent.replace(/\d[\d\s]+/, config.phoneDisplay);
+        if (el.textContent.includes('0') || el.textContent.includes('Call')) {
+            const text = el.textContent;
+            if (text.includes('Call Now')) {
+                el.textContent = '📞 Call Now';
+            } else {
+                el.textContent = config.phoneDisplay;
+            }
         }
     });
     
@@ -57,19 +62,6 @@ function populateBusinessInfo() {
         }
         el.textContent = config.email;
     });
-    
-    // Business name
-    const nameElements = document.querySelectorAll('#footerBusinessName, #footerCopyright');
-    nameElements.forEach(el => {
-        el.textContent = config.businessName;
-    });
-    
-    // ABN and Licence
-    const abnEl = document.getElementById('footerABN');
-    if (abnEl) abnEl.textContent = config.abn;
-    
-    const licenceEl = document.getElementById('footerLicence');
-    if (licenceEl) licenceEl.textContent = config.licence;
     
     // Service areas
     const serviceAreasList = document.getElementById('serviceAreasList');
