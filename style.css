@@ -215,12 +215,17 @@ a:hover {
     gap: var(--space-md);
 }
 
+/* Updated Logo Styles */
 .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
     font-size: 24px;
     font-weight: 700;
     color: var(--ink);
-    white-space: nowrap;
+    text-decoration: none;
 }
+
 
 .nav {
     display: flex;

@@ -131,18 +131,24 @@
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: var(--space-2);
-            font-size: 28px;
-            font-weight: 900;
-            color: var(--ink);
-            text-decoration: none;
-        }
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--ink);
+    text-decoration: none;
+}
 
-        .logo-icon {
-            font-size: 32px;
-        }
+.logo-image {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.logo-icon {
+    font-size: 32px;
+}
 
         .header-cta {
             display: flex;
@@ -1207,7 +1213,16 @@
         .skip-link:focus {
             top: 0;
         }
-
+@media (max-width: 768px) {
+    .logo-image {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .logo {
+        font-size: 20px;
+    }
+}
         @media (prefers-reduced-motion: reduce) {
             * {
                 animation-duration: 0.01ms !important;
@@ -1224,8 +1239,8 @@
         <div class="container">
             <div class="header-content">
                 <a href="/" class="logo">
-                    <span class="logo-icon">⚡</span>
-                    <span>TradieSpark</span>
+                 <img src="/logo.png" alt="TradieSpark" class="logo-image">
+                  <span>TradieSpark</span>
                 </a>
                 <div class="header-cta">
                     <a href="tel:0483838090" class="phone-link">
