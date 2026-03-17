@@ -10,6 +10,11 @@
   var CONFIG = {
     email: 'hello@tradiespark.com.au',
     formspreeEndpoint: 'https://formspree.io/f/xovkkogj',
+    emailjs: {
+      serviceID: 'service_rv0g64q',
+      templateID: 'template_zmkps99',
+      publicKey: 'lEmk1ZUaQ2U8lIIlL'
+    },
     cloudinary: {
       cloudName: 'dyqqr7ipc',
       uploadPreset: 'tradiespark'
@@ -406,6 +411,20 @@
 
           var success = document.getElementById('formSuccess');
           if (success) success.classList.add('visible');
+
+          // Send confirmation email to customer via EmailJS
+          if (typeof emailjs !== 'undefined') {
+            var customerName = formData.get('full_name') || 'there';
+            var customerEmail = formData.get('email') || '';
+            if (customerEmail) {
+              emailjs.send(CONFIG.emailjs.serviceID, CONFIG.emailjs.templateID, {
+                from_name: customerName,
+                email: customerEmail
+              }, CONFIG.emailjs.publicKey).catch(function () {
+                // Silent fail - form already submitted successfully
+              });
+            }
+          }
 
           // Track conversion
           trackEvent('generate_lead', {
