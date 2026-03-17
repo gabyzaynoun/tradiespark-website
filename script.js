@@ -39,6 +39,10 @@
     initStickyCta();
     initPhoneFormatter();
     initActiveNav();
+    initCookieConsent();
+    initABTest();
+    initPricingCounters();
+    initHeroParallax();
   }
 
   // ==================== STICKY HEADER ====================
@@ -200,14 +204,25 @@
   function goToStep(step) {
     if (step < 1 || step > totalSteps) return;
 
-    // Hide current step
+    // Hide current step with slide-out animation
     var current = document.querySelector('.form-step[data-step="' + currentStep + '"]');
-    if (current) current.classList.remove('active');
+    if (current) {
+      current.classList.add('slide-out');
+      setTimeout(function () {
+        current.classList.remove('active', 'slide-out');
+      }, 250);
+    }
 
-    // Show new step
+    // Show new step with slide-in animation
+    var oldStep = currentStep;
     currentStep = step;
     var next = document.querySelector('.form-step[data-step="' + step + '"]');
-    if (next) next.classList.add('active');
+    setTimeout(function () {
+      if (next) {
+        next.classList.add('active', 'slide-in');
+        setTimeout(function () { next.classList.remove('slide-in'); }, 350);
+      }
+    }, current ? 250 : 0);
 
     // Update progress bar
     var bars = document.querySelectorAll('.progress-step');
@@ -638,6 +653,155 @@
     } catch (e) {
       // Silently fail
     }
+  }
+
+  // ==================== COOKIE CONSENT (Item 12) ====================
+  function initCookieConsent() {
+    var banner = document.getElementById('cookieBanner');
+    var acceptBtn = document.getElementById('acceptCookies');
+    var declineBtn = document.getElementById('declineCookies');
+    if (!banner) return;
+
+    var consent = localStorage.getItem('cookie_consent');
+    if (consent === 'accepted') {
+      grantAnalytics();
+      return;
+    }
+    if (consent === 'declined') return;
+
+    // Show banner after 1.5s delay
+    setTimeout(function () {
+      banner.classList.add('visible');
+    }, 1500);
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', function () {
+        localStorage.setItem('cookie_consent', 'accepted');
+        banner.classList.remove('visible');
+        grantAnalytics();
+        trackEvent('cookie_consent', { action: 'accepted' });
+      });
+    }
+
+    if (declineBtn) {
+      declineBtn.addEventListener('click', function () {
+        localStorage.setItem('cookie_consent', 'declined');
+        banner.classList.remove('visible');
+      });
+    }
+
+    function grantAnalytics() {
+      if (typeof gtag === 'function') {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+      }
+    }
+  }
+
+  // ==================== A/B HEADLINE TEST (Item 15) ====================
+  function initABTest() {
+    var headline = document.getElementById('heroHeadline');
+    if (!headline) return;
+
+    var variants = [
+      'Get More Jobs With a Website That <span class="accent">Actually Works</span>',
+      'Your Trade Deserves a Website That <span class="accent">Brings In Work</span>',
+      'Stop Losing Jobs to Tradies With <span class="accent">Better Websites</span>'
+    ];
+
+    // Deterministic assignment based on stored variant or random
+    var storedVariant = localStorage.getItem('ab_headline');
+    var variantIndex;
+
+    if (storedVariant !== null && parseInt(storedVariant) < variants.length) {
+      variantIndex = parseInt(storedVariant);
+    } else {
+      variantIndex = Math.floor(Math.random() * variants.length);
+      localStorage.setItem('ab_headline', variantIndex);
+    }
+
+    headline.innerHTML = variants[variantIndex];
+
+    // Track which variant was shown
+    trackEvent('ab_headline_view', {
+      variant: variantIndex,
+      headline: variants[variantIndex].replace(/<[^>]*>/g, '')
+    });
+
+    // Track conversion when user clicks CTA
+    var ctas = document.querySelectorAll('a[href="#intake"]');
+    for (var i = 0; i < ctas.length; i++) {
+      ctas[i].addEventListener('click', function () {
+        trackEvent('ab_headline_click', {
+          variant: variantIndex,
+          headline: variants[variantIndex].replace(/<[^>]*>/g, '')
+        });
+      });
+    }
+  }
+
+  // ==================== PRICING COUNTERS (Item 14) ====================
+  function initPricingCounters() {
+    var amounts = document.querySelectorAll('.pricing-amount');
+    if (!amounts.length) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          animateAmount(entries[i].target);
+          observer.unobserve(entries[i].target);
+        }
+      }
+    }, { threshold: 0.5 });
+
+    for (var i = 0; i < amounts.length; i++) {
+      observer.observe(amounts[i]);
+    }
+
+    function animateAmount(el) {
+      var text = el.textContent;
+      var match = text.match(/\$([\d,]+)/);
+      if (!match) return;
+
+      var target = parseInt(match[1].replace(/,/g, ''));
+      var start = 0;
+      var duration = 800;
+      var startTime = null;
+
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+        var current = Math.floor(start + (target - start) * eased);
+        el.textContent = '$' + current.toLocaleString();
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = text; // Restore exact original text
+          el.classList.add('animate');
+        }
+      }
+
+      requestAnimationFrame(step);
+    }
+  }
+
+  // ==================== HERO PARALLAX (Item 14) ====================
+  function initHeroParallax() {
+    var glow = document.querySelector('.hero-glow');
+    var hero = document.querySelector('.hero');
+    if (!glow || !hero) return;
+
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
+    window.addEventListener('scroll', function () {
+      var scrollY = window.scrollY;
+      var heroHeight = hero.offsetHeight;
+      if (scrollY > heroHeight) return;
+
+      var parallax = scrollY * 0.3;
+      glow.style.transform = 'translate(-50%, calc(-50% + ' + parallax + 'px))';
+    }, { passive: true });
   }
 
 })();

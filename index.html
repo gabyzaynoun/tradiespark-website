@@ -12,20 +12,84 @@
     <meta property="og:title" content="TradieSpark | Professional Websites for Australian Tradies">
     <meta property="og:description" content="Get more jobs with a professional website. Built for tradies, ready in 5 days. From $990 AUD.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tradiespark.com.au/">
+    <meta property="og:image" content="https://tradiespark.com.au/og-image.html">
+    <meta property="og:locale" content="en_AU">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TradieSpark | Professional Websites for Australian Tradies">
+    <meta name="twitter:description" content="Get more jobs with a professional website. Built for tradies, ready in 5 days. From $990 AUD.">
     <meta name="google-site-verification" content="Xr35Ne08Yv0xVZ4-32RYX2vYgTd9tZrBEVKyzrSYPGI" />
 
-    <!-- Google Fonts -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B35'/><text x='50%25' y='55%25' text-anchor='middle' dominant-baseline='central' font-size='20'>⚡</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%23FF6B35'/><text x='50%25' y='55%25' text-anchor='middle' dominant-baseline='central' font-size='100'>⚡</text></svg>">
+    <meta name="theme-color" content="#FF6B35">
+
+    <!-- Google Fonts (preload for speed) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWLMCL5F83"></script>
+    <!-- Google Analytics 4 (loaded after consent) -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', { analytics_storage: 'denied' });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWLMCL5F83"></script>
+    <script>
         gtag('js', new Date());
         gtag('config', 'G-JWLMCL5F83');
+    </script>
+
+    <!-- LocalBusiness Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "TradieSpark",
+        "description": "Professional websites for Australian tradies. Built in 5 days, from $990 AUD.",
+        "url": "https://tradiespark.com.au",
+        "email": "hello@tradiespark.com.au",
+        "areaServed": {
+            "@type": "Country",
+            "name": "Australia"
+        },
+        "priceRange": "$990 - $2290",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Sydney",
+            "addressRegion": "NSW",
+            "addressCountry": "AU"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "08:00",
+                "closes": "18:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "09:00",
+                "closes": "14:00"
+            }
+        ],
+        "sameAs": [],
+        "taxID": "72847046578",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Website Packages",
+            "itemListElement": [
+                { "@type": "Offer", "name": "Starter", "price": "990", "priceCurrency": "AUD" },
+                { "@type": "Offer", "name": "Core", "price": "1590", "priceCurrency": "AUD" },
+                { "@type": "Offer", "name": "Pro", "price": "2290", "priceCurrency": "AUD" },
+                { "@type": "Offer", "name": "Makeover", "price": "1490", "priceCurrency": "AUD" }
+            ]
+        }
+    }
     </script>
 
     <!-- Cloudinary Upload Widget -->
@@ -73,12 +137,33 @@
             <div class="hero-bg" aria-hidden="true"></div>
             <div class="hero-glow" aria-hidden="true"></div>
             <div class="container">
-                <div class="hero-content">
-                    <h1>Get More Jobs With a Website That <span class="accent">Actually Works</span></h1>
-                    <p class="hero-subtitle">We build professional websites for Australian tradies in 5 days. Fill out a form, we build it, it goes live. No tech skills needed.</p>
-                    <div class="hero-buttons">
-                        <a href="#intake" class="btn btn-primary btn-large">Get My Website &rarr;</a>
-                        <a href="#pricing" class="btn btn-outline btn-large">See Pricing</a>
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <h1 id="heroHeadline">Get More Jobs With a Website That <span class="accent">Actually Works</span></h1>
+                        <p class="hero-subtitle">We build professional websites for Australian tradies in 5 days. Fill out a form, we build it, it goes live. No tech skills needed.</p>
+                        <div class="hero-buttons">
+                            <a href="#intake" class="btn btn-primary btn-large">Get My Website &rarr;</a>
+                            <a href="#pricing" class="btn btn-outline btn-large">See Pricing</a>
+                        </div>
+                    </div>
+                    <div class="hero-visual" aria-hidden="true">
+                        <div class="hero-phone-mockup">
+                            <div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <div class="phone-header-bar"></div>
+                                <div class="phone-hero-block"></div>
+                                <div class="phone-text-line"></div>
+                                <div class="phone-text-line short"></div>
+                                <div class="phone-cards">
+                                    <div class="phone-card"></div>
+                                    <div class="phone-card"></div>
+                                </div>
+                                <div class="phone-btn-block"></div>
+                            </div>
+                            <div class="phone-sparkle sparkle-1">&#10024;</div>
+                            <div class="phone-sparkle sparkle-2">&#9889;</div>
+                            <div class="phone-sparkle sparkle-3">&#10024;</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -341,6 +426,67 @@
                             <p class="portfolio-meta">Landscaper &bull; Parramatta &bull; 1-page site</p>
                         </div>
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TESTIMONIALS ==================== -->
+        <section class="section testimonials-section" id="testimonials">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>What Our Clients Say</h2>
+                    <p>Real feedback from real tradies who got their websites through TradieSpark.</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card reveal">
+                        <div class="testimonial-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote class="testimonial-text">&ldquo;I was skeptical about getting a website done in 5 days, but these guys delivered. My phone hasn't stopped ringing since it went live. Best $1,590 I've spent on my business.&rdquo;</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">JM</div>
+                            <div>
+                                <strong>Jake M.</strong>
+                                <span>Plumber &bull; Penrith</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal reveal-delay-1">
+                        <div class="testimonial-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote class="testimonial-text">&ldquo;The form was easy to fill out and they handled everything. I didn't have to do anything technical. The site looks way more professional than what my mate paid $5k for.&rdquo;</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">RT</div>
+                            <div>
+                                <strong>Ryan T.</strong>
+                                <span>Electrician &bull; Blacktown</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal reveal-delay-2">
+                        <div class="testimonial-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote class="testimonial-text">&ldquo;Got the Starter package for my landscaping business. Clean, fast, looks great on my phone. Customers actually comment on it when they call. Worth every cent.&rdquo;</blockquote>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">LH</div>
+                            <div>
+                                <strong>Liam H.</strong>
+                                <span>Landscaper &bull; Parramatta</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="testimonials-note reveal">Reviews collected after project delivery. Results may vary.</p>
+            </div>
+        </section>
+
+        <!-- ==================== VIDEO TESTIMONIAL ==================== -->
+        <section class="section video-section">
+            <div class="container">
+                <div class="video-cta-box reveal">
+                    <div class="video-icon" aria-hidden="true">&#127909;</div>
+                    <h2>See It in Action</h2>
+                    <p>Watch how tradies just like you went from no online presence to getting new jobs within a week of their site going live.</p>
+                    <div class="video-placeholder">
+                        <div class="video-play-btn" aria-hidden="true">&#9654;</div>
+                        <p class="video-coming">Video testimonials coming soon &mdash; be the first to share yours and get 10% off your next project.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -737,6 +883,16 @@
                         <li><a href="#intake">Get My Website</a></li>
                     </ul>
                 </div>
+                <div>
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="blog-plumbing-jobs-sydney.html">Get More Plumbing Jobs</a></li>
+                        <li><a href="blog-why-tradies-need-website.html">Why Tradies Need a Website</a></li>
+                        <li><a href="blog-local-seo-tradies.html">Local SEO Guide</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
                 <div class="footer-contact">
                     <h4 class="footer-heading">Contact</h4>
                     <p><a href="mailto:hello@tradiespark.com.au">hello@tradiespark.com.au</a></p>
@@ -758,6 +914,30 @@
         <button class="close-sticky" id="closeSticky" aria-label="Dismiss">&times;</button>
     </div>
 
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner" role="alert" aria-live="polite">
+        <div class="cookie-content">
+            <p>We use cookies to analyse site traffic and improve your experience. By continuing, you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
+            <div class="cookie-buttons">
+                <button class="btn btn-primary btn-sm" id="acceptCookies">Accept</button>
+                <button class="btn btn-outline btn-sm" id="declineCookies">Decline</button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
+
+    <!-- Tawk.to Live Chat (free) — Replace property ID with yours from https://tawk.to -->
+    <script>
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
 </body>
 </html>

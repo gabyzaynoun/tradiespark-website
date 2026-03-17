@@ -32,27 +32,40 @@
   </url>
   -->
   
-  <!-- Future blog posts - uncomment when you create them -->
-  <!--
+  <!-- Blog Posts -->
   <url>
-    <loc>https://tradiespark.com.au/blog/how-to-get-more-plumbing-jobs-sydney</loc>
-    <lastmod>2025-10-13</lastmod>
+    <loc>https://tradiespark.com.au/blog-plumbing-jobs-sydney</loc>
+    <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+
   <url>
-    <loc>https://tradiespark.com.au/blog/why-tradies-lose-customers-online</loc>
-    <lastmod>2025-10-13</lastmod>
+    <loc>https://tradiespark.com.au/blog-why-tradies-need-website</loc>
+    <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+
   <url>
-    <loc>https://tradiespark.com.au/blog/local-seo-for-tradies</loc>
-    <lastmod>2025-10-13</lastmod>
+    <loc>https://tradiespark.com.au/blog-local-seo-tradies</loc>
+    <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  -->
+
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://tradiespark.com.au/terms</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://tradiespark.com.au/privacy</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>
