@@ -20,10 +20,10 @@
   --secondary-light: #141428;
   --secondary-lighter: #1E1E38;
   --surface-dark: #0F0F23;
-  --surface-card: rgba(255, 255, 255, 0.04);
-  --surface-card-hover: rgba(255, 255, 255, 0.07);
-  --border-dark: rgba(255, 255, 255, 0.06);
-  --border-dark-hover: rgba(255, 107, 53, 0.3);
+  --surface-card: rgba(255, 255, 255, 0.06);
+  --surface-card-hover: rgba(255, 255, 255, 0.10);
+  --border-dark: rgba(255, 255, 255, 0.10);
+  --border-dark-hover: rgba(255, 107, 53, 0.4);
 
   --white: #FFFFFF;
   --gray-50: #FAFAFA;
@@ -98,7 +98,7 @@ body {
   font-family: var(--font);
   font-size: var(--text-base);
   line-height: 1.7;
-  color: var(--gray-800);
+  color: #D1D5DB;
   background: var(--secondary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -214,6 +214,15 @@ input, textarea, select {
   z-index: 0;
   mask-image: radial-gradient(ellipse at center, black 0%, transparent 80%);
   -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 80%);
+}
+
+/* === SECTION DIVIDER === */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.3), transparent);
+  border: none;
+  margin: 0;
 }
 
 /* === BUTTONS === */
@@ -550,6 +559,152 @@ input, textarea, select {
   font-weight: 600;
 }
 
+/* === HERO PREVIEW VISUAL === */
+.hero-preview {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: var(--space-4);
+  margin-top: var(--space-12);
+  height: 200px;
+}
+
+@media (min-width: 768px) {
+  .hero-preview {
+    height: 260px;
+    gap: var(--space-6);
+  }
+}
+
+.hero-preview-glow {
+  position: absolute;
+  width: 500px;
+  height: 300px;
+  background: radial-gradient(ellipse, rgba(255, 107, 53, 0.12) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.hero-preview-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+  flex-shrink: 0;
+}
+
+.hero-preview-center {
+  width: 220px;
+  height: 180px;
+  z-index: 2;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 107, 53, 0.2);
+}
+
+.hero-preview-left,
+.hero-preview-right {
+  width: 160px;
+  height: 140px;
+  opacity: 0.6;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hero-preview-left,
+  .hero-preview-right {
+    display: block;
+  }
+  .hero-preview-center {
+    width: 280px;
+    height: 220px;
+  }
+  .hero-preview-left {
+    transform: perspective(800px) rotateY(8deg) translateY(10px);
+  }
+  .hero-preview-right {
+    transform: perspective(800px) rotateY(-8deg) translateY(10px);
+  }
+}
+
+.mini-browser-bar {
+  display: flex;
+  gap: 4px;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.mini-browser-bar span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.mini-browser-bar span:first-child { background: #FF5F57; }
+.mini-browser-bar span:nth-child(2) { background: #FEBC2E; }
+.mini-browser-bar span:nth-child(3) { background: #28C840; }
+
+.mini-browser-body {
+  padding: 12px;
+}
+
+.mini-hero-block {
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.15), rgba(255, 159, 67, 0.08));
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.mini-line {
+  border-radius: 3px;
+  margin-bottom: 6px;
+}
+
+.mini-line-heading {
+  width: 70%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.20);
+}
+
+.mini-line-text {
+  width: 90%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.mini-line-text.short {
+  width: 50%;
+}
+
+.mini-line-btn {
+  width: 40%;
+  height: 10px;
+  background: linear-gradient(135deg, var(--primary), #FF9F43);
+  border-radius: 4px;
+  margin-top: 10px;
+  opacity: 0.7;
+}
+
+.mini-cards-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.mini-card-block {
+  flex: 1;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+}
+
 /* Phone mockup styles (kept for structure but hidden) */
 .hero-phone-mockup,
 .phone-notch,
@@ -566,17 +721,17 @@ input, textarea, select {
 
 /* === TRUST BAR === */
 .trust-bar {
-  background: var(--secondary);
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-  padding: var(--space-8) 0;
+  background: var(--secondary-light);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: var(--space-10) 0;
   position: relative;
 }
 
 .trust-items {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-5);
   align-items: center;
 }
 
@@ -584,14 +739,14 @@ input, textarea, select {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .trust-item .check {
   color: var(--primary);
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   flex-shrink: 0;
 }
 
@@ -605,7 +760,7 @@ input, textarea, select {
 
 /* === PRICING === */
 #pricing {
-  background: var(--secondary);
+  background: var(--secondary-light);
   position: relative;
   overflow: hidden;
 }
@@ -981,6 +1136,7 @@ input, textarea, select {
   background: var(--secondary);
   overflow: hidden;
   position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 #portfolio::before {
@@ -1137,7 +1293,7 @@ input, textarea, select {
 
 /* === TESTIMONIALS === */
 .testimonials-section {
-  background: var(--secondary);
+  background: var(--secondary-light);
   position: relative;
   overflow: hidden;
 }
@@ -1313,7 +1469,7 @@ input, textarea, select {
 
 /* === INTAKE FORM === */
 .intake-section {
-  background: var(--secondary);
+  background: var(--secondary-light);
   position: relative;
   overflow: hidden;
 }
