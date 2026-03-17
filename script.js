@@ -1,527 +1,643 @@
-// TradieSpark JavaScript - Complete Interactive Functionality
+/* ============================================
+   TradieSpark - Main JavaScript
+   Multi-step form, Cloudinary uploads, animations
+   ============================================ */
 
-// ============================================
-// Configuration & Initialization
-// ============================================
-let config = window.BUSINESS_CONFIG || {
-    businessName: "TradieSpark",
-    phone: "0483838090",
-    phoneDisplay: "0483 838 090",
-    email: "hello@tradiespark.com.au",
-    abn: "72 847 046 578",
-    licence: "Building websites for tradies",
-    serviceAreas: ["Parramatta", "Blacktown", "Penrith", "Liverpool", "Campbelltown", "All of Sydney"],
-    formBackend: "formspree",
-    formspreeCode: "YOUR_FORMSPREE_ID",
-    googleAnalyticsID: "G-XXXXXXXXXX",
-    facebookPixelID: ""
-};
+(function () {
+  'use strict';
 
-// DOM Ready Handler
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('TradieSpark Website Loaded');
-    
-    // Initialize all modules
-    populateBusinessInfo();
-    initAnalytics();
-    initFormHandler();
-    initSmoothScrolling();
+  // ==================== CONFIG ====================
+  var CONFIG = {
+    email: 'hello@tradiespark.com.au',
+    formspreeEndpoint: 'https://formspree.io/f/xovkkogj',
+    cloudinary: {
+      cloudName: 'dyqqr7ipc',
+      uploadPreset: 'tradiespark'
+    }
+  };
+
+  // ==================== STATE ====================
+  var currentStep = 1;
+  var totalSteps = 5;
+  var uploadedLogos = [];
+  var uploadedPhotos = [];
+
+  // ==================== DOM READY ====================
+  document.addEventListener('DOMContentLoaded', init);
+
+  function init() {
     initStickyHeader();
+    initMobileMenu();
+    initSmoothScroll();
+    initRevealAnimations();
+    initRadioCards();
+    initConditionalFields();
+    initFormNavigation();
+    initFormSubmission();
+    initCloudinaryUploads();
+    initFaqAccordion();
+    initStickyCta();
     initPhoneFormatter();
-    initAnimations();
-    initClickTracking();
-});
+    initActiveNav();
+  }
 
-// ============================================
-// Populate Business Information
-// ============================================
-function populateBusinessInfo() {
-    // Phone numbers
-    const phoneElements = document.querySelectorAll('#headerCallBtn, #mobileCTA, #footerPhone');
-    phoneElements.forEach(el => {
-        el.href = `tel:${config.phone}`;
-        if (el.textContent.includes('0') || el.textContent.includes('Call')) {
-            const text = el.textContent;
-            if (text.includes('Call Now')) {
-                el.textContent = '📞 Call Now';
-            } else {
-                el.textContent = config.phoneDisplay;
-            }
-        }
-    });
-    
-    // Phone display
-    const phoneDisplay = document.getElementById('phoneDisplay');
-    if (phoneDisplay) phoneDisplay.textContent = config.phoneDisplay;
-    
-    // Email
-    const emailElements = document.querySelectorAll('#emailDisplay, #footerEmail');
-    emailElements.forEach(el => {
-        if (el.tagName === 'A') {
-            el.href = `mailto:${config.email}`;
-        }
-        el.textContent = config.email;
-    });
-    
-    // Service areas
-    const serviceAreasList = document.getElementById('serviceAreasList');
-    if (serviceAreasList && config.serviceAreas.length > 0) {
-        serviceAreasList.innerHTML = config.serviceAreas
-            .map(area => `<li>${area}</li>`)
-            .join('');
-    }
-}
-
-// ============================================
-// Analytics Initialization
-// ============================================
-function initAnalytics() {
-    // Load Google Analytics if ID is provided
-    if (config.googleAnalyticsID && config.googleAnalyticsID !== 'G-XXXXXXXXXX') {
-        loadGoogleAnalytics(config.googleAnalyticsID);
-    }
-    
-    // Load Facebook Pixel if ID is provided
-    if (config.facebookPixelID && config.facebookPixelID !== '') {
-        loadFacebookPixel(config.facebookPixelID);
-    }
-    
-    // Track page view
-    trackEvent('page_view', {
-        page_title: document.title,
-        page_location: window.location.href
-    });
-    
-    // Track scroll depth
-    trackScrollDepth();
-}
-
-function loadGoogleAnalytics(measurementId) {
-    // Load GA4
-    const script1 = document.createElement('script');
-    script1.async = true;
-    script1.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-    document.head.appendChild(script1);
-    
-    const script2 = document.createElement('script');
-    script2.innerHTML = `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${measurementId}');
-    `;
-    document.head.appendChild(script2);
-    
-    window.gtag = window.gtag || function() { dataLayer.push(arguments); };
-}
-
-function loadFacebookPixel(pixelId) {
-    !function(f,b,e,v,n,t,s) {
-        if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)
-    }(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', pixelId);
-    fbq('track', 'PageView');
-}
-
-function trackEvent(eventName, parameters) {
-    // Google Analytics 4
-    if (typeof gtag !== 'undefined') {
-        gtag('event', eventName, parameters);
-    }
-    
-    // Facebook Pixel
-    if (typeof fbq !== 'undefined') {
-        fbq('track', eventName, parameters);
-    }
-    
-    // Console log for development
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        console.log('Analytics Event:', eventName, parameters);
-    }
-}
-
-function trackScrollDepth() {
-    const depths = [25, 50, 75, 90, 100];
-    const tracked = new Set();
-    
-    window.addEventListener('scroll', throttle(() => {
-        const scrollPercent = Math.round(
-            (window.scrollY + window.innerHeight) / document.body.scrollHeight * 100
-        );
-        
-        depths.forEach(depth => {
-            if (scrollPercent >= depth && !tracked.has(depth)) {
-                tracked.add(depth);
-                trackEvent('scroll_depth', { percent: depth });
-            }
-        });
-    }, 500));
-}
-
-// ============================================
-// Form Handling
-// ============================================
-function initFormHandler() {
-    const form = document.getElementById('quoteForm');
-    if (!form) return;
-    
-    form.addEventListener('submit', handleFormSubmit);
-}
-
-async function handleFormSubmit(event) {
-    event.preventDefault();
-    
-    const form = event.target;
-    const successMsg = document.getElementById('formSuccess');
-    const errorMsg = document.getElementById('formError');
-    
-    // Hide messages
-    successMsg.style.display = 'none';
-    errorMsg.style.display = 'none';
-    
-    // Get form data
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-    
-    // Validate
-    const validation = validateForm(data);
-    if (!validation.valid) {
-        errorMsg.textContent = validation.message;
-        errorMsg.style.display = 'block';
-        errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-    }
-    
-    // Add loading state
-    form.classList.add('loading');
-    const submitBtn = form.querySelector('[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Sending...';
-    submitBtn.disabled = true;
-    
-    try {
-        // Submit form
-        if (config.formBackend === 'formspree' && config.formspreeCode !== 'YOUR_FORMSPREE_ID') {
-            await submitToFormspree(data);
-        } else {
-            // Demo mode - simulate submission
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            console.log('Form Data (Demo):', data);
-        }
-        
-        // Success
-        successMsg.style.display = 'block';
-        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        form.reset();
-        
-        // Track conversion
-        trackEvent('form_submission', {
-            form_name: 'quote_request',
-            trade_type: data.tradeType
-        });
-        
-        // Facebook Pixel conversion
-        if (typeof fbq !== 'undefined') {
-            fbq('track', 'Lead');
-        }
-        
-    } catch (error) {
-        console.error('Form submission error:', error);
-        errorMsg.textContent = 'Sorry, something went wrong. Please try again or call us directly.';
-        errorMsg.style.display = 'block';
-        errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } finally {
-        form.classList.remove('loading');
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }
-}
-
-function validateForm(data) {
-    // Check required fields
-    if (!data.name || data.name.trim().length < 2) {
-        return { valid: false, message: 'Please enter your full name.' };
-    }
-    
-    if (!data.phone) {
-        return { valid: false, message: 'Please enter your phone number.' };
-    }
-    
-    // Validate Australian phone number
-    const phoneRegex = /^(\+?61|0)[2-478](?:[ -]?[0-9]){8}$/;
-    const cleanPhone = data.phone.replace(/\s/g, '');
-    if (!phoneRegex.test(cleanPhone)) {
-        return { valid: false, message: 'Please enter a valid Australian phone number.' };
-    }
-    
-    if (!data.suburb || data.suburb.trim().length < 2) {
-        return { valid: false, message: 'Please enter your suburb.' };
-    }
-    
-    if (!data.tradeType) {
-        return { valid: false, message: 'Please select your trade type.' };
-    }
-    
-    return { valid: true };
-}
-
-async function submitToFormspree(data) {
-    const response = await fetch(`https://formspree.io/f/${config.formspreeCode}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-    
-    if (!response.ok) {
-        throw new Error('Form submission failed');
-    }
-    
-    return response.json();
-}
-
-// ============================================
-// Phone Number Formatting
-// ============================================
-function initPhoneFormatter() {
-    const phoneInput = document.getElementById('phone');
-    if (!phoneInput) return;
-    
-    phoneInput.addEventListener('input', function(e) {
-        let value = e.target.value.replace(/\D/g, '');
-        let formatted = '';
-        
-        if (value.startsWith('04')) {
-            // Mobile: 0400 000 000
-            if (value.length <= 4) {
-                formatted = value;
-            } else if (value.length <= 7) {
-                formatted = value.slice(0, 4) + ' ' + value.slice(4);
-            } else {
-                formatted = value.slice(0, 4) + ' ' + value.slice(4, 7) + ' ' + value.slice(7, 10);
-            }
-        } else {
-            // Landline: 02 0000 0000
-            if (value.length <= 2) {
-                formatted = value;
-            } else if (value.length <= 6) {
-                formatted = value.slice(0, 2) + ' ' + value.slice(2);
-            } else {
-                formatted = value.slice(0, 2) + ' ' + value.slice(2, 6) + ' ' + value.slice(6, 10);
-            }
-        }
-        
-        e.target.value = formatted;
-    });
-}
-
-// ============================================
-// Smooth Scrolling
-// ============================================
-function initSmoothScrolling() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href === '#') return;
-            
-            e.preventDefault();
-            const target = document.querySelector(href);
-            
-            if (target) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = target.offsetTop - headerHeight - 20;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-                
-                // Update URL
-                history.pushState(null, '', href);
-            }
-        });
-    });
-}
-
-function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        const headerHeight = document.querySelector('.header').offsetHeight;
-        const targetPosition = section.offsetTop - headerHeight - 20;
-        
-        window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-        });
-    }
-}
-
-// Make globally available
-window.scrollToSection = scrollToSection;
-
-// ============================================
-// Sticky Header
-// ============================================
-function initStickyHeader() {
-    const header = document.querySelector('.header');
+  // ==================== STICKY HEADER ====================
+  function initStickyHeader() {
+    var header = document.getElementById('header');
     if (!header) return;
-    
-    let lastScroll = 0;
-    let ticking = false;
-    
-    function updateHeader() {
-        const currentScroll = window.pageYOffset;
-        
-        // Only on mobile
-        if (window.innerWidth <= 768) {
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                header.style.transform = 'translateY(-100%)';
-            } else {
-                header.style.transform = 'translateY(0)';
-            }
+
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }, { passive: true });
+  }
+
+  // ==================== MOBILE MENU ====================
+  function initMobileMenu() {
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobileMenu');
+    if (!hamburger || !mobileMenu) return;
+
+    hamburger.addEventListener('click', function () {
+      var isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    // Close menu on link click
+    var links = mobileMenu.querySelectorAll('a');
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    }
+  }
+
+  // ==================== SMOOTH SCROLL ====================
+  function initSmoothScroll() {
+    var anchors = document.querySelectorAll('a[href^="#"]');
+    for (var i = 0; i < anchors.length; i++) {
+      anchors[i].addEventListener('click', function (e) {
+        var targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        var target = document.querySelector(targetId);
+        if (!target) return;
+        e.preventDefault();
+        var headerOffset = 80;
+        var elementPosition = target.getBoundingClientRect().top;
+        var offsetPosition = elementPosition + window.scrollY - headerOffset;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      });
+    }
+  }
+
+  // ==================== REVEAL ANIMATIONS ====================
+  function initRevealAnimations() {
+    var reveals = document.querySelectorAll('.reveal');
+    if (!reveals.length) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          entries[i].target.classList.add('visible');
+          observer.unobserve(entries[i].target);
+        }
+      }
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    for (var i = 0; i < reveals.length; i++) {
+      observer.observe(reveals[i]);
+    }
+  }
+
+  // ==================== RADIO CARDS ====================
+  function initRadioCards() {
+    var groups = document.querySelectorAll('.radio-cards');
+    for (var g = 0; g < groups.length; g++) {
+      (function (group) {
+        var cards = group.querySelectorAll('.radio-card');
+        for (var c = 0; c < cards.length; c++) {
+          (function (card) {
+            var radio = card.querySelector('input[type="radio"]');
+            if (!radio) return;
+
+            card.addEventListener('click', function () {
+              for (var j = 0; j < cards.length; j++) {
+                cards[j].classList.remove('selected');
+              }
+              card.classList.add('selected');
+              radio.checked = true;
+              radio.dispatchEvent(new Event('change', { bubbles: true }));
+            });
+
+            if (radio.checked) card.classList.add('selected');
+          })(cards[c]);
+        }
+      })(groups[g]);
+    }
+  }
+
+  // ==================== CONDITIONAL FIELDS ====================
+  function initConditionalFields() {
+    // Existing website → show URL field
+    var existingRadios = document.querySelectorAll('input[name="existing_website"]');
+    for (var i = 0; i < existingRadios.length; i++) {
+      existingRadios[i].addEventListener('change', function () {
+        var urlField = document.getElementById('existingUrlField');
+        if (urlField) {
+          if (this.value === 'Yes') {
+            urlField.classList.add('visible');
+          } else {
+            urlField.classList.remove('visible');
+          }
+        }
+      });
+    }
+
+    // Package → Makeover info box
+    var packageRadios = document.querySelectorAll('input[name="package"]');
+    for (var j = 0; j < packageRadios.length; j++) {
+      packageRadios[j].addEventListener('change', function () {
+        var makeoverInfo = document.getElementById('makeoverInfo');
+        if (makeoverInfo) {
+          if (this.value.indexOf('Makeover') !== -1) {
+            makeoverInfo.classList.add('visible');
+          } else {
+            makeoverInfo.classList.remove('visible');
+          }
+        }
+      });
+    }
+  }
+
+  // ==================== MULTI-STEP FORM ====================
+  function initFormNavigation() {
+    var nextBtn = document.getElementById('nextBtn');
+    var prevBtn = document.getElementById('prevBtn');
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        if (validateStep(currentStep)) {
+          goToStep(currentStep + 1);
+        }
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        goToStep(currentStep - 1);
+      });
+    }
+  }
+
+  function goToStep(step) {
+    if (step < 1 || step > totalSteps) return;
+
+    // Hide current step
+    var current = document.querySelector('.form-step[data-step="' + currentStep + '"]');
+    if (current) current.classList.remove('active');
+
+    // Show new step
+    currentStep = step;
+    var next = document.querySelector('.form-step[data-step="' + step + '"]');
+    if (next) next.classList.add('active');
+
+    // Update progress bar
+    var bars = document.querySelectorAll('.progress-step');
+    for (var i = 0; i < bars.length; i++) {
+      var barStep = parseInt(bars[i].getAttribute('data-step'));
+      bars[i].classList.remove('active', 'completed');
+      if (barStep === currentStep) bars[i].classList.add('active');
+      else if (barStep < currentStep) bars[i].classList.add('completed');
+    }
+
+    // Update step label
+    var label = document.getElementById('currentStepNum');
+    if (label) label.textContent = String(currentStep);
+
+    // Update buttons
+    var prevBtn = document.getElementById('prevBtn');
+    var nextBtn = document.getElementById('nextBtn');
+    var submitBtn = document.getElementById('submitBtn');
+
+    if (prevBtn) prevBtn.style.display = currentStep > 1 ? '' : 'none';
+    if (nextBtn) nextBtn.style.display = currentStep < totalSteps ? '' : 'none';
+    if (submitBtn) submitBtn.style.display = currentStep === totalSteps ? '' : 'none';
+
+    // Scroll form into view
+    var wrapper = document.querySelector('.form-wrapper');
+    if (wrapper) {
+      wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  // ==================== FORM VALIDATION ====================
+  function validateStep(step) {
+    clearErrors();
+    var valid = true;
+
+    if (step === 1) {
+      if (!validateRequired('fullName', 'fullNameError', 2)) valid = false;
+      if (!validateRequired('businessName', 'businessNameError', 2)) valid = false;
+      if (!validateEmail('email', 'emailError')) valid = false;
+      if (!validatePhone('phone', 'phoneError')) valid = false;
+      if (!validateRequired('suburb', 'suburbError', 2)) valid = false;
+      if (!validateSelect('tradeType', 'tradeTypeError')) valid = false;
+    }
+
+    if (step === 2) {
+      if (!validateRadio('package', 'packageError')) valid = false;
+      if (!validateRadio('hosting', 'hostingError')) valid = false;
+      if (!validateRadio('existing_website', 'existingWebsiteError')) valid = false;
+    }
+
+    if (step === 3) {
+      if (!validateRequired('businessDesc', 'businessDescError', 10)) valid = false;
+      if (!validateRequired('services', 'servicesError', 3)) valid = false;
+      if (!validateRequired('serviceAreas', 'serviceAreasError', 2)) valid = false;
+    }
+
+    if (step === 4) {
+      if (uploadedPhotos.length === 0) {
+        showError('photosError');
+        valid = false;
+      }
+    }
+
+    if (step === 5) {
+      if (!validateSelect('hearAbout', 'hearAboutError')) valid = false;
+    }
+
+    return valid;
+  }
+
+  function validateRequired(fieldId, errorId, minLength) {
+    var field = document.getElementById(fieldId);
+    if (!field) return true;
+    var value = field.value.trim();
+    if (value.length < (minLength || 1)) {
+      showError(errorId);
+      field.classList.add('error');
+      return false;
+    }
+    return true;
+  }
+
+  function validateEmail(fieldId, errorId) {
+    var field = document.getElementById(fieldId);
+    if (!field) return true;
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!re.test(field.value.trim())) {
+      showError(errorId);
+      field.classList.add('error');
+      return false;
+    }
+    return true;
+  }
+
+  function validatePhone(fieldId, errorId) {
+    var field = document.getElementById(fieldId);
+    if (!field) return true;
+    var cleaned = field.value.replace(/[\s\-()]/g, '');
+    var re = /^(\+?61|0)[2-478]\d{8}$/;
+    if (!re.test(cleaned)) {
+      showError(errorId);
+      field.classList.add('error');
+      return false;
+    }
+    return true;
+  }
+
+  function validateSelect(fieldId, errorId) {
+    var field = document.getElementById(fieldId);
+    if (!field) return true;
+    if (!field.value) {
+      showError(errorId);
+      field.classList.add('error');
+      return false;
+    }
+    return true;
+  }
+
+  function validateRadio(name, errorId) {
+    var checked = document.querySelector('input[name="' + name + '"]:checked');
+    if (!checked) {
+      showError(errorId);
+      return false;
+    }
+    return true;
+  }
+
+  function showError(errorId) {
+    var el = document.getElementById(errorId);
+    if (el) el.classList.add('visible');
+  }
+
+  function clearErrors() {
+    var errors = document.querySelectorAll('.form-error');
+    for (var i = 0; i < errors.length; i++) {
+      errors[i].classList.remove('visible');
+    }
+    var fields = document.querySelectorAll('.error');
+    for (var j = 0; j < fields.length; j++) {
+      fields[j].classList.remove('error');
+    }
+  }
+
+  // ==================== FORM SUBMISSION ====================
+  function initFormSubmission() {
+    var form = document.getElementById('intakeForm');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (!validateStep(currentStep)) return;
+
+      var submitBtn = document.getElementById('submitBtn');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+
+      // Set upload URLs in hidden fields
+      document.getElementById('logoUrls').value = uploadedLogos.join(', ');
+      document.getElementById('photoUrls').value = uploadedPhotos.join(', ');
+
+      var formData = new FormData(form);
+
+      fetch(CONFIG.formspreeEndpoint, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(function (response) {
+        if (response.ok) {
+          // Show success
+          form.style.display = 'none';
+          var progress = document.querySelector('.form-progress');
+          var stepLabel = document.querySelector('.form-step-label');
+          var formNav = document.querySelector('.form-nav');
+          if (progress) progress.style.display = 'none';
+          if (stepLabel) stepLabel.style.display = 'none';
+          if (formNav) formNav.style.display = 'none';
+
+          var success = document.getElementById('formSuccess');
+          if (success) success.classList.add('visible');
+
+          // Track conversion
+          trackEvent('generate_lead', {
+            event_category: 'form',
+            event_label: 'intake_form_submitted'
+          });
         } else {
-            header.style.transform = 'translateY(0)';
+          throw new Error('Form submission failed');
         }
-        
-        lastScroll = currentScroll;
-        ticking = false;
-    }
-    
-    function requestTick() {
-        if (!ticking) {
-            window.requestAnimationFrame(updateHeader);
-            ticking = true;
+      })
+      .catch(function () {
+        alert('Something went wrong. Please try again or email us at ' + CONFIG.email);
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Get My Website \u2192';
         }
-    }
-    
-    window.addEventListener('scroll', requestTick);
-    window.addEventListener('resize', updateHeader);
-}
+      });
+    });
+  }
 
-// ============================================
-// Animations (Intersection Observer)
-// ============================================
-function initAnimations() {
-    if (!('IntersectionObserver' in window)) return;
-    
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+  // ==================== CLOUDINARY UPLOADS ====================
+  function initCloudinaryUploads() {
+    setupUploadWidget('logoUpload', 'logoPreviews', uploadedLogos, {
+      maxFiles: 1,
+      folder: 'tradiespark/logos',
+      clientAllowedFormats: ['jpg', 'jpeg', 'png', 'svg', 'pdf']
+    });
+
+    setupUploadWidget('photosUpload', 'photosPreviews', uploadedPhotos, {
+      maxFiles: 15,
+      folder: 'tradiespark/photos',
+      clientAllowedFormats: ['jpg', 'jpeg', 'png']
+    });
+  }
+
+  function setupUploadWidget(triggerId, previewsId, urlArray, options) {
+    var trigger = document.getElementById(triggerId);
+    var previewsContainer = document.getElementById(previewsId);
+    if (!trigger || !previewsContainer) return;
+
+    trigger.addEventListener('click', function () {
+      if (typeof cloudinary === 'undefined' || !cloudinary.createUploadWidget) {
+        alert('Upload widget is loading. Please try again in a moment.');
+        return;
+      }
+
+      var widget = cloudinary.createUploadWidget({
+        cloudName: CONFIG.cloudinary.cloudName,
+        uploadPreset: CONFIG.cloudinary.uploadPreset,
+        sources: ['local'],
+        multiple: (options.maxFiles || 1) > 1,
+        maxFiles: options.maxFiles || 1,
+        resourceType: 'image',
+        folder: options.folder || 'tradiespark',
+        clientAllowedFormats: options.clientAllowedFormats,
+        showAdvancedOptions: false,
+        cropping: false,
+        styles: {
+          palette: {
+            window: '#FFFFFF',
+            windowBorder: '#E5E7EB',
+            tabIcon: '#FF6B35',
+            menuIcons: '#6B7280',
+            textDark: '#111827',
+            textLight: '#FFFFFF',
+            link: '#FF6B35',
+            action: '#FF6B35',
+            inactiveTabIcon: '#9CA3AF',
+            error: '#EF4444',
+            inProgress: '#FF6B35',
+            complete: '#10B981',
+            sourceBg: '#F5F5F5'
+          }
+        }
+      }, function (error, result) {
+        if (!error && result && result.event === 'success') {
+          var url = result.info.secure_url;
+          urlArray.push(url);
+
+          // Create thumbnail preview
+          var preview = document.createElement('div');
+          preview.className = 'upload-preview';
+
+          var img = document.createElement('img');
+          img.src = result.info.thumbnail_url || url;
+          img.alt = 'Uploaded file';
+          preview.appendChild(img);
+
+          var removeBtn = document.createElement('button');
+          removeBtn.type = 'button';
+          removeBtn.className = 'remove-btn';
+          removeBtn.setAttribute('aria-label', 'Remove');
+          removeBtn.innerHTML = '&times;';
+          removeBtn.addEventListener('click', function () {
+            var idx = urlArray.indexOf(url);
+            if (idx !== -1) urlArray.splice(idx, 1);
+            preview.remove();
+          });
+          preview.appendChild(removeBtn);
+
+          previewsContainer.appendChild(preview);
+        }
+      });
+
+      widget.open();
+    });
+  }
+
+  // ==================== FAQ ACCORDION ====================
+  function initFaqAccordion() {
+    var questions = document.querySelectorAll('.faq-question');
+    for (var i = 0; i < questions.length; i++) {
+      (function (btn) {
+        btn.addEventListener('click', function () {
+          var item = btn.closest('.faq-item');
+          var answer = item.querySelector('.faq-answer');
+          var inner = item.querySelector('.faq-answer-inner');
+          var isOpen = item.classList.contains('open');
+
+          // Close all others
+          var openItems = document.querySelectorAll('.faq-item.open');
+          for (var j = 0; j < openItems.length; j++) {
+            if (openItems[j] !== item) {
+              openItems[j].classList.remove('open');
+              openItems[j].querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+              openItems[j].querySelector('.faq-answer').style.maxHeight = '0';
             }
-        });
-    }, observerOptions);
-    
-    // Observe elements
-    const animateElements = document.querySelectorAll(
-        '.feature-card, .pricing-card, .process-step, .testimonial-card, .faq-item'
-    );
-    
-    animateElements.forEach(el => {
-        el.classList.add('fade-in');
-        observer.observe(el);
-    });
-}
+          }
 
-// ============================================
-// Click Tracking
-// ============================================
-function initClickTracking() {
-    // Track CTA buttons
-    document.querySelectorAll('.btn').forEach(button => {
-        button.addEventListener('click', function() {
-            trackEvent('cta_click', {
-                button_text: this.textContent.trim(),
-                button_class: this.className
-            });
+          // Toggle current
+          if (isOpen) {
+            item.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+            answer.style.maxHeight = '0';
+          } else {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+            answer.style.maxHeight = inner.scrollHeight + 'px';
+          }
         });
-    });
-    
-    // Track phone clicks
-    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
-        link.addEventListener('click', function() {
-            trackEvent('phone_click', {
-                phone_number: this.href.replace('tel:', ''),
-                location: this.id || 'unknown'
-            });
-        });
-    });
-    
-    // Track email clicks
-    document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
-        link.addEventListener('click', function() {
-            trackEvent('email_click', {
-                email: this.href.replace('mailto:', '')
-            });
-        });
-    });
-}
+      })(questions[i]);
+    }
+  }
 
-// ============================================
-// Utility Functions
-// ============================================
-function throttle(func, limit) {
-    let inThrottle;
-    return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
+  // ==================== STICKY CTA ====================
+  function initStickyCta() {
+    var cta = document.getElementById('stickyCta');
+    var closeBtn = document.getElementById('closeSticky');
+    var intakeSection = document.getElementById('intake');
+    if (!cta) return;
+
+    var dismissedAt = localStorage.getItem('stickyCta_dismissed');
+    var isDismissed = dismissedAt && (Date.now() - parseInt(dismissedAt) < 86400000);
+    if (isDismissed) return;
+
+    var shown = false;
+    window.addEventListener('scroll', function () {
+      if (isDismissed) return;
+
+      // Show after 400px scroll
+      if (window.scrollY > 400 && !shown) {
+        cta.classList.add('visible');
+        shown = true;
+      }
+
+      // Hide when intake section is visible
+      if (intakeSection) {
+        var rect = intakeSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          cta.classList.remove('visible');
+        } else if (shown) {
+          cta.classList.add('visible');
         }
-    };
-}
+      }
+    }, { passive: true });
 
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        cta.classList.remove('visible');
+        isDismissed = true;
+        localStorage.setItem('stickyCta_dismissed', String(Date.now()));
+      });
+    }
+  }
 
-// ============================================
-// Error Handling
-// ============================================
-window.addEventListener('error', (e) => {
-    console.error('Global error:', e);
-    trackEvent('javascript_error', {
-        message: e.message,
-        source: e.filename,
-        line: e.lineno
+  // ==================== PHONE FORMATTER ====================
+  function initPhoneFormatter() {
+    var phoneInput = document.getElementById('phone');
+    if (!phoneInput) return;
+
+    phoneInput.addEventListener('input', function () {
+      var value = this.value.replace(/\D/g, '');
+
+      if (value.startsWith('04') && value.length <= 10) {
+        // Mobile: 0400 000 000
+        if (value.length > 7) {
+          this.value = value.slice(0, 4) + ' ' + value.slice(4, 7) + ' ' + value.slice(7, 10);
+        } else if (value.length > 4) {
+          this.value = value.slice(0, 4) + ' ' + value.slice(4);
+        }
+      } else if (value.startsWith('0') && value.length <= 10) {
+        // Landline: 02 0000 0000
+        if (value.length > 6) {
+          this.value = value.slice(0, 2) + ' ' + value.slice(2, 6) + ' ' + value.slice(6, 10);
+        } else if (value.length > 2) {
+          this.value = value.slice(0, 2) + ' ' + value.slice(2);
+        }
+      }
     });
-});
+  }
 
-window.addEventListener('unhandledrejection', (e) => {
-    console.error('Unhandled promise rejection:', e);
-    trackEvent('promise_rejection', {
-        reason: e.reason
-    });
-});
+  // ==================== ACTIVE NAV ====================
+  function initActiveNav() {
+    var sections = document.querySelectorAll('section[id]');
+    var navLinks = document.querySelectorAll('.nav-links a');
+    if (!sections.length || !navLinks.length) return;
 
-// ============================================
-// Development Helpers
-// ============================================
-if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-    console.log('%cTradieSpark Development Mode', 'color: #0B5FFF; font-size: 20px; font-weight: bold;');
-    console.log('Config:', config);
-    console.log('Form backend:', config.formBackend);
-    console.log('Analytics:', config.googleAnalyticsID !== 'G-XXXXXXXXXX' ? 'enabled' : 'disabled');
-}
+    window.addEventListener('scroll', function () {
+      var scrollY = window.scrollY + 100;
+
+      for (var i = 0; i < sections.length; i++) {
+        var section = sections[i];
+        var top = section.offsetTop;
+        var height = section.offsetHeight;
+        var id = section.getAttribute('id');
+
+        if (scrollY >= top && scrollY < top + height) {
+          for (var j = 0; j < navLinks.length; j++) {
+            navLinks[j].classList.remove('active');
+            if (navLinks[j].getAttribute('href') === '#' + id) {
+              navLinks[j].classList.add('active');
+            }
+          }
+        }
+      }
+    }, { passive: true });
+  }
+
+  // ==================== ANALYTICS ====================
+  function trackEvent(eventName, params) {
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, params || {});
+      }
+    } catch (e) {
+      // Silently fail
+    }
+  }
+
+})();

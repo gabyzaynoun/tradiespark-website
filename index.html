@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TradieSpark | Professional Websites for Australian Tradies in 5 Days</title>
-    <meta name="description" content="Get a professional tradie website in just 5 days. Mobile-first design, SEO optimised, and built for Australian plumbers, electricians, and builders. From $800. 100% satisfaction guarantee.">
+    <meta name="description" content="Get a professional tradie website in just 5 days. Mobile-first design, SEO optimised, built on WordPress. From $990 AUD. 100% satisfaction guarantee.">
     <meta name="keywords" content="tradie website design, australian tradie websites, plumber website, electrician website, builder website">
     <link rel="canonical" href="https://tradiespark.com.au/">
-    
+
     <!-- Open Graph -->
     <meta property="og:title" content="TradieSpark | Professional Websites for Australian Tradies">
-    <meta property="og:description" content="Get more jobs with a professional website. Built for tradies, ready in 5 days.">
+    <meta property="og:description" content="Get more jobs with a professional website. Built for tradies, ready in 5 days. From $990 AUD.">
     <meta property="og:type" content="website">
     <meta name="google-site-verification" content="Xr35Ne08Yv0xVZ4-32RYX2vYgTd9tZrBEVKyzrSYPGI" />
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWLMCL5F83"></script>
     <script>
@@ -27,2146 +27,737 @@
         gtag('js', new Date());
         gtag('config', 'G-JWLMCL5F83');
     </script>
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        :root {
-            /* Tradie-Focused Color Palette */
-            --primary: #0B5FFF;
-            --primary-dark: #0847C7;
-            --accent: #FF6B35;
-            --accent-dark: #E85A2A;
-            --success: #00C389;
-            --warning: #FDB022;
-            
-            /* Industrial Neutrals */
-            --ink: #0D1321;
-            --charcoal: #1A1F2E;
-            --steel: #2D3748;
-            --concrete: #4A5568;
-            --gray-600: #718096;
-            --gray-500: #A0AEC0;
-            --gray-400: #CBD5E0;
-            --gray-300: #E2E8F0;
-            --gray-200: #EDF2F7;
-            --gray-100: #F7FAFC;
-            --white: #FFFFFF;
-            
-            /* Typography - Bold and Strong */
-            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            
-            /* Spacing */
-            --space-2: 8px;
-            --space-3: 12px;
-            --space-4: 16px;
-            --space-5: 20px;
-            --space-6: 24px;
-            --space-8: 32px;
-            --space-10: 40px;
-            --space-12: 48px;
-            --space-16: 64px;
-            --space-20: 80px;
-            --space-24: 96px;
-            
-            /* Shadows - Strong and Defined */
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.2);
-            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.25);
-            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.3);
-            
-            --radius-sm: 4px;
-            --radius-md: 8px;
-            --radius-lg: 12px;
-            --radius-xl: 16px;
-            --radius-full: 9999px;
-        }
+    <!-- Cloudinary Upload Widget -->
+    <script src="https://upload-widget.cloudinary.com/global/all.js" defer></script>
 
-        body {
-            font-family: var(--font-family);
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--ink);
-            background: var(--white);
-            -webkit-font-smoothing: antialiased;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 800;
-            line-height: 1.1;
-            color: var(--ink);
-            letter-spacing: -0.02em;
-        }
-
-        h1 { font-size: clamp(36px, 6vw, 64px); }
-        h2 { font-size: clamp(28px, 4vw, 44px); }
-        h3 { font-size: clamp(22px, 3vw, 32px); }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--space-6);
-        }
-
-        /* Header */
-        .header {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(12px);
-            border-bottom: 3px solid var(--accent);
-            z-index: 100;
-            padding: var(--space-4) 0;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-size: 28px;
-    font-weight: 900;
-    color: var(--ink);
-    text-decoration: none;
-}
-
-.logo-image {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-}
-
-.logo-icon {
-    font-size: 32px;
-}
-
-        .header-cta {
-            display: flex;
-            align-items: center;
-            gap: var(--space-4);
-        }
-
-        .phone-link {
-            display: flex;
-            align-items: center;
-            gap: var(--space-2);
-            font-weight: 700;
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        /* Buttons - Strong and Bold */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--space-2);
-            padding: var(--space-4) var(--space-8);
-            font-size: 16px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border-radius: var(--radius-md);
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            min-height: 48px;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent), #FF8C5A);
-            color: var(--white);
-            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-secondary {
-            background: var(--white);
-            color: var(--accent);
-            border: 3px solid var(--accent);
-        }
-
-        .btn-secondary:hover {
-            background: var(--accent);
-            color: var(--white);
-        }
-
-        .btn-large {
-            padding: var(--space-5) var(--space-12);
-            font-size: 18px;
-            min-height: 56px;
-        }
-
-        /* Hero - Bold and Impactful */
-        .hero {
-            background: linear-gradient(135deg, var(--charcoal) 0%, var(--steel) 100%);
-            color: var(--white);
-            padding: var(--space-24) 0 var(--space-20);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                linear-gradient(30deg, var(--accent) 12%, transparent 12.5%, transparent 87%, var(--accent) 87.5%, var(--accent)),
-                linear-gradient(150deg, var(--accent) 12%, transparent 12.5%, transparent 87%, var(--accent) 87.5%, var(--accent));
-            background-size: 80px 80px;
-            opacity: 0.05;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--white);
-            padding: var(--space-2) var(--space-5);
-            border-radius: var(--radius-full);
-            font-size: 14px;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: var(--space-6);
-            letter-spacing: 1px;
-        }
-
-        .hero h1 {
-            color: var(--white);
-            margin-bottom: var(--space-6);
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .hero-subtitle {
-            font-size: clamp(18px, 2.5vw, 24px);
-            margin-bottom: var(--space-10);
-            opacity: 0.95;
-            line-height: 1.6;
-            font-weight: 500;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: var(--space-4);
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: var(--space-12);
-        }
-
-        .hero-trust {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-10);
-            flex-wrap: wrap;
-            padding: var(--space-6);
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: var(--radius-lg);
-        }
-
-        .trust-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: var(--space-2);
-        }
-
-        .trust-number {
-            font-size: 32px;
-            font-weight: 900;
-            color: var(--accent);
-        }
-
-        .trust-label {
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        /* Stats Bar - Industrial Design */
-        .stats-bar {
-            background: var(--white);
-            padding: var(--space-12) 0;
-            box-shadow: var(--shadow-md);
-            border-top: 4px solid var(--accent);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--space-8);
-            text-align: center;
-        }
-
-        .stat-item {
-            padding: var(--space-4);
-            border-left: 4px solid var(--accent);
-        }
-
-        .stat-item h3 {
-            font-size: 56px;
-            color: var(--accent);
-            margin-bottom: var(--space-2);
-            font-weight: 900;
-        }
-
-        .stat-item p {
-            color: var(--steel);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-size: 14px;
-        }
-
-        /* Section */
-        .section {
-            padding: var(--space-20) 0;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto var(--space-12);
-        }
-
-        .section-badge {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--white);
-            padding: var(--space-2) var(--space-5);
-            border-radius: var(--radius-full);
-            font-size: 13px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: var(--space-5);
-        }
-
-        .section-subtitle {
-            font-size: 18px;
-            color: var(--concrete);
-            font-weight: 500;
-        }
-
-        /* Portfolio - Realistic Website Previews */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--space-8);
-            margin-bottom: var(--space-12);
-        }
-
-        .portfolio-item {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            transition: all 0.3s ease;
-            border: 3px solid var(--gray-200);
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-            border-color: var(--accent);
-        }
-
-        .portfolio-preview {
-            aspect-ratio: 16/10;
-            background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
-            display: flex;
-            flex-direction: column;
-            padding: var(--space-4);
-            position: relative;
-        }
-
-        .browser-bar {
-            background: var(--gray-300);
-            height: 24px;
-            border-radius: var(--radius-sm) var(--radius-sm) 0 0;
-            display: flex;
-            align-items: center;
-            padding: 0 var(--space-2);
-            gap: var(--space-2);
-            margin-bottom: var(--space-2);
-        }
-
-        .browser-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--concrete);
-        }
-
-        .website-content {
-            flex: 1;
-            background: var(--white);
-            border-radius: var(--radius-sm);
-            padding: var(--space-4);
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-3);
-        }
-
-        .content-header {
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
-            padding: 0 var(--space-3);
-            color: white;
-            font-weight: 700;
-            font-size: 14px;
-        }
-
-        .content-block {
-            height: 12px;
-            background: var(--gray-300);
-            border-radius: var(--radius-sm);
-        }
-
-        .content-block.short {
-            width: 60%;
-        }
-
-        .portfolio-info {
-            padding: var(--space-5);
-            background: var(--white);
-        }
-
-        .portfolio-title {
-            font-size: 20px;
-            font-weight: 800;
-            color: var(--ink);
-            margin-bottom: var(--space-2);
-        }
-
-        .portfolio-trade {
-            font-size: 14px;
-            color: var(--accent);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* Case Studies - Proof of Results */
-        .case-study-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-6);
-            margin-top: var(--space-10);
-        }
-
-        .case-study-card {
-            background: var(--white);
-            border: 3px solid var(--gray-200);
-            border-radius: var(--radius-lg);
-            padding: var(--space-6);
-            box-shadow: var(--shadow-md);
-        }
-
-        .case-study-header {
-            display: flex;
-            align-items: center;
-            gap: var(--space-3);
-            margin-bottom: var(--space-5);
-        }
-
-        .case-study-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-        }
-
-        .case-study-title {
-            font-size: 18px;
-            font-weight: 800;
-            color: var(--ink);
-        }
-
-        .case-study-results {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-4);
-            margin: var(--space-5) 0;
-        }
-
-        .result-item {
-            text-align: center;
-            padding: var(--space-3);
-            background: var(--gray-100);
-            border-radius: var(--radius-md);
-        }
-
-        .result-number {
-            font-size: 32px;
-            font-weight: 900;
-            color: var(--accent);
-            margin-bottom: var(--space-2);
-        }
-
-        .result-label {
-            font-size: 12px;
-            color: var(--steel);
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .case-study-quote {
-            font-style: italic;
-            color: var(--concrete);
-            line-height: 1.6;
-            border-left: 4px solid var(--accent);
-            padding-left: var(--space-4);
-        }
-
-        /* Comparison Table */
-        .comparison-table {
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            max-width: 900px;
-            margin: var(--space-10) auto;
-        }
-
-        .comparison-row {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            border-bottom: 2px solid var(--gray-200);
-        }
-
-        .comparison-row:last-child {
-            border-bottom: none;
-        }
-
-        .comparison-header {
-            background: var(--charcoal);
-            color: var(--white);
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-size: 14px;
-        }
-
-        .comparison-cell {
-            padding: var(--space-4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .comparison-cell:first-child {
-            justify-content: flex-start;
-            text-align: left;
-            font-weight: 600;
-            color: var(--ink);
-        }
-
-        .comparison-highlight {
-            background: linear-gradient(135deg, #FF6B3510, #0B5FFF10);
-        }
-
-        .check-icon {
-            color: var(--success);
-            font-size: 24px;
-            font-weight: 900;
-        }
-
-        .cross-icon {
-            color: var(--concrete);
-            font-size: 24px;
-            font-weight: 900;
-        }
-
-        /* Features */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--space-8);
-        }
-
-        .feature-card {
-            background: var(--white);
-            border: 3px solid var(--gray-200);
-            border-radius: var(--radius-lg);
-            padding: var(--space-8);
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .feature-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            margin: 0 auto var(--space-5);
-            box-shadow: var(--shadow-md);
-        }
-
-        .feature-title {
-            font-size: 22px;
-            margin-bottom: var(--space-3);
-            color: var(--ink);
-            font-weight: 800;
-        }
-
-        .feature-description {
-            color: var(--concrete);
-            line-height: 1.7;
-        }
-
-        /* Testimonials */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: var(--space-6);
-        }
-
-        .testimonial-card {
-            background: var(--white);
-            border: 3px solid var(--gray-200);
-            border-radius: var(--radius-lg);
-            padding: var(--space-6);
-            box-shadow: var(--shadow-md);
-        }
-
-        .testimonial-stars {
-            color: var(--warning);
-            font-size: 24px;
-            margin-bottom: var(--space-4);
-        }
-
-        .testimonial-text {
-            font-size: 17px;
-            line-height: 1.7;
-            color: var(--steel);
-            margin-bottom: var(--space-6);
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: var(--space-3);
-            padding-top: var(--space-4);
-            border-top: 2px solid var(--gray-200);
-        }
-
-        .testimonial-avatar {
-            width: 56px;
-            height: 56px;
-            border-radius: var(--radius-full);
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-weight: 900;
-            font-size: 20px;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .testimonial-name {
-            font-weight: 800;
-            color: var(--ink);
-            margin-bottom: var(--space-2);
-        }
-
-        .testimonial-role {
-            font-size: 14px;
-            color: var(--concrete);
-            font-weight: 600;
-        }
-
-        /* Pricing */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: var(--space-6);
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .pricing-card {
-            background: var(--white);
-            border: 3px solid var(--gray-200);
-            border-radius: var(--radius-xl);
-            padding: var(--space-8);
-            position: relative;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-md);
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .pricing-card.popular {
-            border-color: var(--accent);
-            border-width: 4px;
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: -16px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--accent);
-            color: var(--white);
-            padding: var(--space-2) var(--space-6);
-            border-radius: var(--radius-full);
-            font-size: 13px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: var(--shadow-md);
-        }
-
-        .pricing-header {
-            text-align: center;
-            margin-bottom: var(--space-6);
-            padding-bottom: var(--space-6);
-            border-bottom: 3px solid var(--gray-200);
-        }
-
-        .pricing-name {
-            font-size: 28px;
-            font-weight: 900;
-            margin-bottom: var(--space-2);
-        }
-
-        .pricing-pages {
-            color: var(--concrete);
-            font-size: 15px;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .pricing-price {
-            text-align: center;
-            margin: var(--space-6) 0;
-        }
-
-        .pricing-amount {
-            font-size: 64px;
-            font-weight: 900;
-            color: var(--accent);
-            line-height: 1;
-        }
-
-        .pricing-currency {
-            font-size: 20px;
-            color: var(--concrete);
-            font-weight: 700;
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin-bottom: var(--space-6);
-        }
-
-        .pricing-features li {
-            display: flex;
-            align-items: center;
-            gap: var(--space-3);
-            padding: var(--space-3) 0;
-            border-bottom: 1px solid var(--gray-200);
-            font-weight: 500;
-        }
-
-        .pricing-features li:last-child {
-            border-bottom: none;
-        }
-
-        .pricing-features li::before {
-            content: "✓";
-            color: var(--success);
-            font-weight: 900;
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-
-        /* About - Founder Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: var(--space-12);
-            align-items: center;
-        }
-
-        .founder-image {
-            aspect-ratio: 3/4;
-            background: linear-gradient(135deg, var(--charcoal), var(--steel));
-            border-radius: var(--radius-xl);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 120px;
-            box-shadow: var(--shadow-xl);
-            border: 4px solid var(--accent);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .founder-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                linear-gradient(45deg, var(--accent) 25%, transparent 25%),
-                linear-gradient(-45deg, var(--accent) 25%, transparent 25%);
-            background-size: 60px 60px;
-            opacity: 0.1;
-        }
-
-        .founder-icon {
-            position: relative;
-            z-index: 1;
-        }
-
-        .about-text h2 {
-            margin-bottom: var(--space-5);
-        }
-
-        .about-text p {
-            color: var(--steel);
-            font-size: 17px;
-            line-height: 1.8;
-            margin-bottom: var(--space-5);
-        }
-
-        .guarantee-box {
-            background: linear-gradient(135deg, #00C38920, #0B5FFF20);
-            border: 3px solid var(--accent);
-            border-radius: var(--radius-lg);
-            padding: var(--space-6);
-            margin-top: var(--space-8);
-        }
-
-        .guarantee-box h3 {
-            color: var(--accent);
-            margin-bottom: var(--space-3);
-            font-size: 24px;
-        }
-
-        .guarantee-box p {
-            margin-bottom: 0;
-        }
-
-        /* FAQ */
-        .faq-list {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: var(--white);
-            border: 3px solid var(--gray-200);
-            border-radius: var(--radius-lg);
-            margin-bottom: var(--space-4);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .faq-item.active {
-            border-color: var(--accent);
-        }
-
-        .faq-question {
-            width: 100%;
-            text-align: left;
-            background: none;
-            border: none;
-            padding: var(--space-6);
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--ink);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .faq-question:hover {
-            background: var(--gray-100);
-        }
-
-        .faq-icon {
-            font-size: 28px;
-            color: var(--accent);
-            font-weight: 900;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-answer {
-            padding: 0 var(--space-6) var(--space-6);
-            color: var(--steel);
-            line-height: 1.8;
-            display: none;
-        }
-
-        .faq-item.active .faq-answer {
-            display: block;
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--charcoal), var(--steel));
-            color: var(--white);
-            padding: var(--space-20) 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                linear-gradient(30deg, var(--accent) 12%, transparent 12.5%, transparent 87%, var(--accent) 87.5%);
-            background-size: 80px 80px;
-            opacity: 0.1;
-        }
-
-        .cta-section h2 {
-            color: var(--white);
-            margin-bottom: var(--space-5);
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-section p {
-            font-size: 22px;
-            margin-bottom: var(--space-10);
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Contact Form */
-        .contact-form {
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            padding: var(--space-10);
-            max-width: 700px;
-            margin: 0 auto;
-            box-shadow: var(--shadow-xl);
-            border: 3px solid var(--accent);
-        }
-
-        .form-group {
-            margin-bottom: var(--space-5);
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 700;
-            margin-bottom: var(--space-2);
-            color: var(--ink);
-            font-size: 15px;
-        }
-
-        .required {
-            color: var(--accent);
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: var(--space-4);
-            border: 3px solid var(--gray-300);
-            border-radius: var(--radius-md);
-            font-family: var(--font-family);
-            font-size: 16px;
-            transition: all 0.2s ease;
-            font-weight: 500;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1);
-        }
-
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .success-message,
-        .error-message {
-            padding: var(--space-4);
-            border-radius: var(--radius-md);
-            margin-bottom: var(--space-5);
-            display: none;
-            font-weight: 700;
-        }
-
-        .success-message {
-            background: #00C38920;
-            color: var(--success);
-            border: 3px solid var(--success);
-        }
-
-        .error-message {
-            background: #E11D4820;
-            color: #E11D48;
-            border: 3px solid #E11D48;
-        }
-
-        .success-message.show,
-        .error-message.show {
-            display: block;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--charcoal);
-            color: var(--gray-400);
-            padding: var(--space-16) 0 var(--space-8);
-            border-top: 4px solid var(--accent);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-10);
-            margin-bottom: var(--space-10);
-        }
-
-        .footer-section h3 {
-            color: var(--white);
-            margin-bottom: var(--space-4);
-            font-size: 18px;
-            font-weight: 800;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section li {
-            margin-bottom: var(--space-3);
-        }
-
-        .footer-section a {
-            color: var(--gray-400);
-            text-decoration: none;
-            transition: color 0.2s ease;
-            font-weight: 500;
-        }
-
-        .footer-section a:hover {
-            color: var(--accent);
-        }
-
-        .footer-bottom {
-            border-top: 2px solid var(--steel);
-            padding-top: var(--space-6);
-            text-align: center;
-            font-size: 14px;
-        }
-
-        /* Mobile Sticky CTA */
-        .mobile-sticky-cta {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--accent);
-            color: var(--white);
-            padding: var(--space-4) var(--space-10);
-            border-radius: var(--radius-full);
-            box-shadow: 0 8px 24px rgba(255, 107, 53, 0.5);
-            font-weight: 900;
-            text-decoration: none;
-            z-index: 90;
-            display: none;
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .mobile-sticky-cta {
-                display: block;
-            }
-
-            .header-cta .btn {
-                display: none;
-            }
-
-            .phone-link span:not(.logo-icon) {
-                display: none;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .founder-image {
-                max-width: 300px;
-                margin: 0 auto;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .comparison-row {
-                grid-template-columns: 2fr 1fr 1fr;
-                font-size: 14px;
-            }
-
-            .comparison-cell {
-                padding: var(--space-3);
-            }
-
-            .portfolio-grid,
-            .pricing-grid,
-            .features-grid,
-            .testimonials-grid,
-            .case-study-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--accent);
-            color: var(--white);
-            padding: var(--space-2) var(--space-4);
-            text-decoration: none;
-            z-index: 200;
-            font-weight: 700;
-        }
-
-        .skip-link:focus {
-            top: 0;
-        }
-@media (max-width: 768px) {
-    .logo-image {
-        width: 32px;
-        height: 32px;
-    }
-    
-    .logo {
-        font-size: 20px;
-    }
-}
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a href="#main" class="skip-link">Skip to main content</a>
 
-    <!-- Header -->
-    <header class="header">
+    <!-- ==================== HEADER ==================== -->
+    <header class="header" id="header">
         <div class="container">
             <div class="header-content">
-                <a href="/" class="logo">
-                 <img src="/logo.png" alt="TradieSpark" class="logo-image">
-                  <span>TradieSpark</span>
+                <a href="/" class="logo" aria-label="TradieSpark Home">
+                    <span class="logo-icon">&#9889;</span>
+                    <span>TradieSpark</span>
                 </a>
-                <div class="header-cta">
-                    <a href="tel:0483838090" class="phone-link">
-                        <span>📞</span>
-                        <span>0483 838 090</span>
-                    </a>
-                    <a href="#contact" class="btn btn-primary">Get Free Quote</a>
-                </div>
+                <nav class="nav-links" aria-label="Main navigation">
+                    <a href="#pricing">Pricing</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#faq">FAQ</a>
+                </nav>
+                <a href="#intake" class="btn btn-primary nav-cta">Get My Website &rarr;</a>
+                <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </header>
 
-    <main id="main">
-        <!-- Hero -->
-        <section class="hero">
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+        <a href="#pricing" class="mobile-menu-link">Pricing</a>
+        <a href="#how-it-works" class="mobile-menu-link">How It Works</a>
+        <a href="#faq" class="mobile-menu-link">FAQ</a>
+        <a href="#intake" class="btn btn-primary btn-large mobile-menu-link">Get My Website &rarr;</a>
+    </div>
+
+    <main>
+
+        <!-- ==================== HERO ==================== -->
+        <section class="hero" id="hero">
+            <div class="hero-bg" aria-hidden="true"></div>
+            <div class="hero-glow" aria-hidden="true"></div>
             <div class="container">
                 <div class="hero-content">
-                    <div class="hero-badge">
-                        Built by Tradies, for Tradies
-                    </div>
-                    <h1>Professional Websites for Australian Tradies in 5 Days</h1>
-                    <p class="hero-subtitle">
-                        Get more jobs with a mobile-first website that actually works. No tech skills needed. 100% satisfaction guarantee or your money back.
-                    </p>
+                    <h1>Get More Jobs With a Website That <span class="accent">Actually Works</span></h1>
+                    <p class="hero-subtitle">We build professional websites for Australian tradies in 5 days. Fill out a form, we build it, it goes live. No tech skills needed.</p>
                     <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary btn-large">Get Your Free Quote →</a>
-                        <a href="#pricing" class="btn btn-secondary btn-large">See Pricing</a>
+                        <a href="#intake" class="btn btn-primary btn-large">Get My Website &rarr;</a>
+                        <a href="#pricing" class="btn btn-outline btn-large">See Pricing</a>
                     </div>
-                    <div class="hero-trust">
-                        <div class="trust-item">
-                            <div class="trust-number">⭐ 4.9</div>
-                            <div class="trust-label">Average Rating</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TRUST BAR ==================== -->
+        <section class="trust-bar" aria-label="Trust signals">
+            <div class="container">
+                <div class="trust-items">
+                    <div class="trust-item reveal">
+                        <span class="check" aria-hidden="true">&#10003;</span>
+                        <span>5-Day Delivery Guarantee</span>
+                    </div>
+                    <div class="trust-item reveal reveal-delay-1">
+                        <span class="check" aria-hidden="true">&#10003;</span>
+                        <span>100% Satisfaction or Full Refund</span>
+                    </div>
+                    <div class="trust-item reveal reveal-delay-2">
+                        <span class="check" aria-hidden="true">&#10003;</span>
+                        <span>Built on WordPress &mdash; You Own Everything</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PRICING ==================== -->
+        <section class="section" id="pricing">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Simple Pricing. No Hidden Fees.</h2>
+                    <p>Choose the package that's right for your tradie business. All prices in AUD, GST included.</p>
+                </div>
+
+                <!-- Package Cards -->
+                <div class="pricing-grid">
+                    <!-- Starter -->
+                    <div class="pricing-card reveal">
+                        <h3 class="pricing-name">Starter</h3>
+                        <p class="pricing-desc">1-page website</p>
+                        <div class="pricing-price">
+                            <span class="pricing-amount">$990</span>
+                            <span class="pricing-currency"> AUD</span>
                         </div>
-                        <div class="trust-item">
-                            <div class="trust-number">150+</div>
-                            <div class="trust-label">Websites Built</div>
+                        <ul class="pricing-features">
+                            <li>Mobile-first design</li>
+                            <li>One-tap call button</li>
+                            <li>Contact form</li>
+                            <li>Basic local SEO</li>
+                            <li>1 revision round</li>
+                            <li>3&ndash;5 day delivery</li>
+                        </ul>
+                        <a href="#intake" class="btn btn-secondary">Get My Website &rarr;</a>
+                    </div>
+
+                    <!-- Core (Most Popular) -->
+                    <div class="pricing-card popular reveal reveal-delay-1">
+                        <span class="popular-badge">Most Popular</span>
+                        <h3 class="pricing-name">Core</h3>
+                        <p class="pricing-desc">3-page website</p>
+                        <div class="pricing-price">
+                            <span class="pricing-amount">$1,590</span>
+                            <span class="pricing-currency"> AUD</span>
                         </div>
-                        <div class="trust-item">
-                            <div class="trust-number">5 Days</div>
-                            <div class="trust-label">Avg Delivery</div>
+                        <ul class="pricing-features">
+                            <li>Everything in Starter</li>
+                            <li>Photo gallery</li>
+                            <li>Services page</li>
+                            <li>Google Maps embed</li>
+                            <li>Advanced local SEO</li>
+                            <li>2 revision rounds</li>
+                            <li>5&ndash;7 day delivery</li>
+                        </ul>
+                        <a href="#intake" class="btn btn-primary">Get My Website &rarr;</a>
+                    </div>
+
+                    <!-- Pro -->
+                    <div class="pricing-card reveal reveal-delay-2">
+                        <h3 class="pricing-name">Pro</h3>
+                        <p class="pricing-desc">5-page website</p>
+                        <div class="pricing-price">
+                            <span class="pricing-amount">$2,290</span>
+                            <span class="pricing-currency"> AUD</span>
                         </div>
-                        <div class="trust-item">
-                            <div class="trust-number">3× Jobs</div>
-                            <div class="trust-label">More Enquiries</div>
+                        <ul class="pricing-features">
+                            <li>Everything in Core</li>
+                            <li>About/team page</li>
+                            <li>Service area pages</li>
+                            <li>Blog setup (3 posts)</li>
+                            <li>Premium SEO package</li>
+                            <li>3 revision rounds</li>
+                            <li>7&ndash;10 day delivery</li>
+                        </ul>
+                        <a href="#intake" class="btn btn-secondary">Get My Website &rarr;</a>
+                    </div>
+
+                    <!-- Makeover -->
+                    <div class="pricing-card reveal reveal-delay-3">
+                        <h3 class="pricing-name">Makeover</h3>
+                        <p class="pricing-desc">Redesign your existing site</p>
+                        <div class="pricing-price">
+                            <span class="pricing-amount">$1,490</span>
+                            <span class="pricing-currency"> AUD</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>Must have existing domain + hosting</li>
+                            <li>Up to 5 pages redesigned</li>
+                            <li>New mobile-first design</li>
+                            <li>Updated SEO</li>
+                            <li>2 revision rounds</li>
+                            <li>5&ndash;7 day delivery</li>
+                        </ul>
+                        <a href="#intake" class="btn btn-secondary">Get My Website &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Add-ons -->
+                <h3 class="addons-heading reveal">Optional Add-Ons</h3>
+                <div class="addons-grid">
+                    <div class="addon-card reveal">
+                        <div class="addon-icon">&#129302;</div>
+                        <h4 class="addon-name">AI Chat Widget</h4>
+                        <p class="addon-price">$590 one-time setup</p>
+                        <p class="addon-desc">Smart chat that captures leads 24/7. Requires ~$29/month subscription paid directly to the AI provider. We set it up &mdash; you own it.</p>
+                    </div>
+                    <div class="addon-card reveal reveal-delay-1">
+                        <div class="addon-icon">&#128736;</div>
+                        <h4 class="addon-name">Monthly Care Plan</h4>
+                        <p class="addon-price">$79/month</p>
+                        <p class="addon-desc">We handle all updates, security patches, and ongoing support so you don't have to.</p>
+                    </div>
+                    <div class="addon-card reveal reveal-delay-2">
+                        <div class="addon-icon">&#128205;</div>
+                        <h4 class="addon-name">Google Business Setup</h4>
+                        <p class="addon-price">$149 one-time</p>
+                        <p class="addon-desc">Full Google Business Profile setup and optimisation. We set it up, you own it.</p>
+                    </div>
+                    <div class="addon-card reveal reveal-delay-3">
+                        <div class="addon-icon">&#9889;</div>
+                        <h4 class="addon-name">Rush Delivery</h4>
+                        <p class="addon-price">+$250</p>
+                        <p class="addon-desc">Need it faster? We'll get your site done in 2 days instead of 5.</p>
+                    </div>
+                </div>
+
+                <!-- Domain & Hosting Explainer -->
+                <div class="hosting-box reveal">
+                    <h3>What About Domain &amp; Hosting?</h3>
+                    <div class="hosting-options">
+                        <div class="hosting-option">
+                            <span class="price-tag">Free</span>
+                            <h4>Option A: You Handle It</h4>
+                            <p>We tell you exactly what to buy (~$10/month hosting, ~$15/year domain). You give us login access during the build.</p>
+                        </div>
+                        <div class="hosting-option">
+                            <span class="price-tag">+$100 one-time</span>
+                            <h4>Option B: We Handle It</h4>
+                            <p>We purchase domain + hosting on your behalf. You own the account and renew it yourself each year.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Stats Bar -->
-        <div class="stats-bar">
+        <!-- ==================== HOW IT WORKS ==================== -->
+        <section class="section" id="how-it-works" style="background: var(--gray-50);">
             <div class="container">
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <h3>150+</h3>
-                        <p>Websites Built</p>
+                <div class="section-header reveal">
+                    <h2>From Form to Live Website in 5 Days</h2>
+                    <p>Simple process. No tech skills needed. We handle everything.</p>
+                </div>
+                <div class="steps-grid">
+                    <div class="step reveal">
+                        <div class="step-number">1</div>
+                        <h3>Fill the Form</h3>
+                        <p>Tell us about your business, upload your photos, pick your package. Takes 5 minutes.</p>
                     </div>
-                    <div class="stat-item">
-                        <h3>98%</h3>
-                        <p>Satisfaction</p>
+                    <div class="step reveal reveal-delay-1">
+                        <div class="step-number">2</div>
+                        <h3>Pay Your Deposit</h3>
+                        <p>We send you an invoice within 2 hours. 50% upfront to get started.</p>
                     </div>
-                    <div class="stat-item">
-                        <h3>5-Day</h3>
-                        <p>Avg Launch</p>
+                    <div class="step reveal reveal-delay-2">
+                        <div class="step-number">3</div>
+                        <h3>We Build It</h3>
+                        <p>Our team builds your site using your details and photos. You don't lift a finger.</p>
                     </div>
-                    <div class="stat-item">
-                        <h3>3×</h3>
-                        <p>More Leads</p>
+                    <div class="step reveal reveal-delay-3">
+                        <div class="step-number">4</div>
+                        <h3>You Approve It</h3>
+                        <p>We send you a preview link. Give us your feedback in one email.</p>
+                    </div>
+                    <div class="step reveal reveal-delay-4">
+                        <div class="step-number">5</div>
+                        <h3>Goes Live</h3>
+                        <p>Pay the remaining 50%, site goes live on your domain. Done.</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Portfolio -->
-        <section class="section" style="background: var(--gray-100);">
+        <!-- ==================== PORTFOLIO ==================== -->
+        <section class="section" id="portfolio">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-badge">Our Work</span>
-                    <h2>Real Tradie Websites We Build</h2>
-                    <p class="section-subtitle">See the type of professional websites we create for Australian tradies</p>
+                <div class="section-header reveal">
+                    <h2>Our Work</h2>
+                    <p>Real websites built for real Australian tradies. Click any demo to explore it live.</p>
                 </div>
                 <div class="portfolio-grid">
-                    <div class="portfolio-item">
-                        <div class="portfolio-preview">
+                    <a href="demo-plumber.html" target="_blank" class="portfolio-card reveal">
+                        <div class="browser-frame">
                             <div class="browser-bar">
-                                <div class="browser-dot"></div>
-                                <div class="browser-dot"></div>
-                                <div class="browser-dot"></div>
+                                <div class="browser-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="browser-url">penrithplumbingco.com.au</div>
                             </div>
-                            <div class="website-content">
-                                <div class="content-header">🔧 Sydney Plumbing Pros</div>
-                                <div class="content-block"></div>
-                                <div class="content-block short"></div>
-                                <div class="content-block"></div>
+                            <div class="browser-body">
+                                <iframe src="demo-plumber.html" loading="lazy" title="Plumber demo" scrolling="no"></iframe>
                             </div>
                         </div>
                         <div class="portfolio-info">
-                            <h3 class="portfolio-title">Sydney Plumbing Pros</h3>
-                            <p class="portfolio-trade">Plumbing • Penrith NSW</p>
+                            <div class="portfolio-badge">Core Package &mdash; $1,590</div>
+                            <h3 class="portfolio-trade">Penrith Plumbing Co</h3>
+                            <p class="portfolio-meta">Plumber &bull; Penrith &bull; 3-page site</p>
                         </div>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-preview">
+                    </a>
+                    <a href="demo-electrician.html" target="_blank" class="portfolio-card reveal reveal-delay-1">
+                        <div class="browser-frame">
                             <div class="browser-bar">
-                                <div class="browser-dot"></div>
-                                <div class="browser-dot"></div>
-                                <div class="browser-dot"></div>
+                                <div class="browser-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="browser-url">sparkrightelectrical.com.au</div>
                             </div>
-                            <div class="website-content">
-                                <div class="content-header">⚡ Elite Electricians</div>
-                                <div class="content-block"></div>
-                                <div class="content-block short"></div>
-                                <div class="content-block"></div>
+                            <div class="browser-body">
+                                <iframe src="demo-electrician.html" loading="lazy" title="Electrician demo" scrolling="no"></iframe>
                             </div>
                         </div>
                         <div class="portfolio-info">
-                            <h3 class="portfolio-title">Elite Electricians</h3>
-                            <p class="portfolio-trade">Electrical • Parramatta NSW</p>
+                            <div class="portfolio-badge portfolio-badge-pro">Pro Package &mdash; $2,290</div>
+                            <h3 class="portfolio-trade">Spark Right Electrical</h3>
+                            <p class="portfolio-meta">Electrician &bull; Western Sydney &bull; 5-page site</p>
                         </div>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-preview">
+                    </a>
+                    <a href="demo-landscaper.html" target="_blank" class="portfolio-card reveal reveal-delay-2">
+                        <div class="browser-frame">
                             <div class="browser-bar">
-                                <div class="browser-dot"></div>
-                                <div class="browser-dot"></div>
-                                <div class="browser-dot"></div>
+                                <div class="browser-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="browser-url">greenedgelandscaping.com.au</div>
                             </div>
-                            <div class="website-content">
-                                <div class="content-header">🏗️ Western Builders Co</div>
-                                <div class="content-block"></div>
-                                <div class="content-block short"></div>
-                                <div class="content-block"></div>
+                            <div class="browser-body">
+                                <iframe src="demo-landscaper.html" loading="lazy" title="Landscaper demo" scrolling="no"></iframe>
                             </div>
                         </div>
                         <div class="portfolio-info">
-                            <h3 class="portfolio-title">Western Builders Co</h3>
-                            <p class="portfolio-trade">Building • Blacktown NSW</p>
+                            <div class="portfolio-badge portfolio-badge-starter">Starter Package &mdash; $990</div>
+                            <h3 class="portfolio-trade">GreenEdge Landscaping</h3>
+                            <p class="portfolio-meta">Landscaper &bull; Parramatta &bull; 1-page site</p>
                         </div>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-preview">
-                            <div class="browser-bar">
-                                <div class="browser-dot"></div>
-                                <div class="browser-dot"></div>
-                                <div class="browser-dot"></div>
-                            </div>
-                            <div class="website-content">
-                                <div class="content-header">🔨 Pro Carpentry Sydney</div>
-                                <div class="content-block"></div>
-                                <div class="content-block short"></div>
-                                <div class="content-block"></div>
-                            </div>
-                        </div>
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">Pro Carpentry Sydney</h3>
-                            <p class="portfolio-trade">Carpentry • Liverpool NSW</p>
-                        </div>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-preview">
-                            <div class="browser-bar">
-                                <div class="browser-dot"></div>
-                                <div class="browser-dot"></div>
-                                <div class="browser-dot"></div>
-                            </div>
-                            <div class="website-content">
-                                <div class="content-header">🎨 Precision Painters</div>
-                                <div class="content-block"></div>
-                                <div class="content-block short"></div>
-                                <div class="content-block"></div>
-                            </div>
-                        </div>
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">Precision Painters</h3>
-                            <p class="portfolio-trade">Painting • Campbelltown NSW</p>
-                        </div>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-preview">
-                            <div class="browser-bar">
-                                <div class="browser-dot"></div>
-                                <div class="browser-dot"></div>
-                                <div class="browser-dot"></div>
-                            </div>
-                            <div class="website-content">
-                                <div class="content-header">🌿 Green Landscaping</div>
-                                <div class="content-block"></div>
-                                <div class="content-block short"></div>
-                                <div class="content-block"></div>
-                            </div>
-                        </div>
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">Green Landscaping</h3>
-                            <p class="portfolio-trade">Landscaping • Ryde NSW</p>
-                        </div>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: var(--space-10);">
-                    <a href="#contact" class="btn btn-primary btn-large">Start Your Website Today →</a>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Real Results / Case Studies -->
-        <section class="section">
+        <!-- ==================== INTAKE FORM ==================== -->
+        <section class="section intake-section" id="intake">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-badge">Proven Results</span>
-                    <h2>Real Numbers from Real Tradies</h2>
-                    <p class="section-subtitle">See the actual impact our websites have had on Australian tradie businesses</p>
+                <div class="section-header reveal">
+                    <h2>Get Your Website</h2>
+                    <p>Fill this in and we'll send your deposit invoice within 2 hours.</p>
                 </div>
-                <div class="case-study-grid">
-                    <div class="case-study-card">
-                        <div class="case-study-header">
-                            <div class="case-study-icon">🔧</div>
-                            <div class="case-study-title">Dave's Plumbing<br>Penrith</div>
-                        </div>
-                        <div class="case-study-results">
-                            <div class="result-item">
-                                <div class="result-number">+180%</div>
-                                <div class="result-label">More Calls</div>
-                            </div>
-                            <div class="result-item">
-                                <div class="result-number">#1</div>
-                                <div class="result-label">Google Rank</div>
-                            </div>
-                            <div class="result-item">
-                                <div class="result-number">3 Jobs</div>
-                                <div class="result-label">First Week</div>
-                            </div>
-                            <div class="result-item">
-                                <div class="result-number">$12K+</div>
-                                <div class="result-label">First Month</div>
-                            </div>
-                        </div>
-                        <p class="case-study-quote">"Before TradieSpark, I was losing jobs to competitors with flashy websites. Now I'm the one getting the calls. Best $1,200 I ever spent."</p>
-                    </div>
 
-                    <div class="case-study-card">
-                        <div class="case-study-header">
-                            <div class="case-study-icon">⚡</div>
-                            <div class="case-study-title">Sarah's Electrical<br>Parramatta</div>
-                        </div>
-                        <div class="case-study-results">
-                            <div class="result-item">
-                                <div class="result-number">+250%</div>
-                                <div class="result-label">Web Traffic</div>
-                            </div>
-                            <div class="result-item">
-                                <div class="result-number">4.9★</div>
-                                <div class="result-label">Google Rating</div>
-                            </div>
-                            <div class="result-item">
-                                <div class="result-number">15+</div>
-                                <div class="result-label">Leads/Week</div>
-                            </div>
-                            <div class="result-item">
-                                <div class="result-number">65%</div>
-                                <div class="result-label">Conversion</div>
-                            </div>
-                        </div>
-                        <p class="case-study-quote">"The website paid for itself in the first week. Now I'm booked solid 3 weeks in advance. TradieSpark knows what tradies need."</p>
+                <div class="form-wrapper reveal">
+                    <!-- Progress Bar -->
+                    <div class="form-progress" aria-label="Form progress">
+                        <div class="progress-step active" data-step="1"></div>
+                        <div class="progress-step" data-step="2"></div>
+                        <div class="progress-step" data-step="3"></div>
+                        <div class="progress-step" data-step="4"></div>
+                        <div class="progress-step" data-step="5"></div>
                     </div>
+                    <p class="form-step-label">Step <strong id="currentStepNum">1</strong> of <strong>5</strong></p>
 
-                    <div class="case-study-card">
-                        <div class="case-study-header">
-                            <div class="case-study-icon">🏗️</div>
-                            <div class="case-study-title">Western Builders<br>Blacktown</div>
-                        </div>
-                        <div class="case-study-results">
-                            <div class="result-item">
-                                <div class="result-number">+320%</div>
-                                <div class="result-label">Quote Requests</div>
-                            </div>
-                            <div class="result-item">
-                                <div class="result-number">Page 1</div>
-                                <div class="result-label">All Keywords</div>
-                            </div>
-                            <div class="result-item">
-                                <div class="result-number">24/7</div>
-                                <div class="result-label">Leads Coming</div>
-                            </div>
-                            <div class="result-item">
-                                <div class="result-number">$45K</div>
-                                <div class="result-label">Monthly Rev</div>
-                            </div>
-                        </div>
-                        <p class="case-study-quote">"We went from barely getting by to turning down jobs. The website works while I sleep. It's like having a sales team that never stops."</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                    <form id="intakeForm" novalidate>
+                        <!-- Hidden fields for Formspree -->
+                        <input type="hidden" name="_subject" value="New TradieSpark Intake Form Submission">
+                        <input type="hidden" name="_autoresponse" value="G'day! We've received your details — you're all set! We'll send your deposit invoice to this email within 2 hours. Once that's paid, we'll kick off your build straight away. Questions? Just reply to this email. Cheers, Gaby | TradieSpark | hello@tradiespark.com.au">
+                        <input type="hidden" name="logo_urls" id="logoUrls" value="">
+                        <input type="hidden" name="photo_urls" id="photoUrls" value="">
 
-        <!-- Comparison Table -->
-        <section class="section" style="background: var(--gray-100);">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-badge">Why Choose Us</span>
-                    <h2>TradieSpark vs Generic Web Agencies</h2>
-                    <p class="section-subtitle">See why 150+ tradies chose us over the competition</p>
-                </div>
-                <div class="comparison-table">
-                    <div class="comparison-row comparison-header">
-                        <div class="comparison-cell">Feature</div>
-                        <div class="comparison-cell">TradieSpark</div>
-                        <div class="comparison-cell">Generic Agencies</div>
-                    </div>
-                    <div class="comparison-row comparison-highlight">
-                        <div class="comparison-cell">Built by tradies who understand your business</div>
-                        <div class="comparison-cell"><span class="check-icon">✓</span></div>
-                        <div class="comparison-cell"><span class="cross-icon">✗</span></div>
-                    </div>
-                    <div class="comparison-row">
-                        <div class="comparison-cell">5-day delivery guarantee</div>
-                        <div class="comparison-cell"><span class="check-icon">✓</span></div>
-                        <div class="comparison-cell"><span class="cross-icon">2-8 weeks</span></div>
-                    </div>
-                    <div class="comparison-row comparison-highlight">
-                        <div class="comparison-cell">Tradie-specific SEO & local rankings</div>
-                        <div class="comparison-cell"><span class="check-icon">✓</span></div>
-                        <div class="comparison-cell"><span class="cross-icon">Generic SEO</span></div>
-                    </div>
-                    <div class="comparison-row">
-                        <div class="comparison-cell">Fixed pricing, no surprises</div>
-                        <div class="comparison-cell"><span class="check-icon">✓</span></div>
-                        <div class="comparison-cell"><span class="cross-icon">Hidden fees</span></div>
-                    </div>
-                    <div class="comparison-row comparison-highlight">
-                        <div class="comparison-cell">100% satisfaction money-back guarantee</div>
-                        <div class="comparison-cell"><span class="check-icon">✓</span></div>
-                        <div class="comparison-cell"><span class="cross-icon">✗</span></div>
-                    </div>
-                    <div class="comparison-row">
-                        <div class="comparison-cell">One-tap calling & mobile-first design</div>
-                        <div class="comparison-cell"><span class="check-icon">✓</span></div>
-                        <div class="comparison-cell"><span class="cross-icon">Sometimes</span></div>
-                    </div>
-                    <div class="comparison-row comparison-highlight">
-                        <div class="comparison-cell">Real tradie portfolio, not stock photos</div>
-                        <div class="comparison-cell"><span class="check-icon">✓</span></div>
-                        <div class="comparison-cell"><span class="cross-icon">Stock images</span></div>
-                    </div>
-                    <div class="comparison-row">
-                        <div class="comparison-cell">Speaks your language (no tech jargon)</div>
-                        <div class="comparison-cell"><span class="check-icon">✓</span></div>
-                        <div class="comparison-cell"><span class="cross-icon">Confusing</span></div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        <!-- ===== STEP 1: YOUR DETAILS ===== -->
+                        <div class="form-step active" data-step="1">
+                            <h3>Your Details</h3>
 
-        <!-- Features -->
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-badge">What's Included</span>
-                    <h2>Everything You Need to Win More Jobs</h2>
-                    <p class="section-subtitle">Professional features that make your tradie business stand out online</p>
-                </div>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🔍</div>
-                        <h3 class="feature-title">Local SEO</h3>
-                        <p class="feature-description">Dominate "near me" searches in your area. We optimize for searches like "plumber Penrith" and "electrician Parramatta".</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📱</div>
-                        <h3 class="feature-title">One-Tap Calling</h3>
-                        <p class="feature-description">Mobile visitors call you with one tap. No typing numbers. 70% of tradie website traffic is mobile.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📸</div>
-                        <h3 class="feature-title">Photo Gallery</h3>
-                        <p class="feature-description">Showcase your best work. Before/after photos, job galleries, and portfolio that builds instant trust.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">⭐</div>
-                        <h3 class="feature-title">Review Integration</h3>
-                        <p class="feature-description">Display Google reviews automatically. Social proof that converts browsers into paying customers.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📝</div>
-                        <h3 class="feature-title">24/7 Quote Forms</h3>
-                        <p class="feature-description">Capture leads while you sleep. Customers can request quotes any time, even after business hours.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🏢</div>
-                        <h3 class="feature-title">Google Business</h3>
-                        <p class="feature-description">Complete setup and optimization of your Google Business Profile for maximum local visibility.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                            <div class="form-group">
+                                <label for="fullName">Full name <span class="required">*</span></label>
+                                <input type="text" id="fullName" name="full_name" required placeholder="John Smith">
+                                <p class="form-error" id="fullNameError">Please enter your full name.</p>
+                            </div>
 
-        <!-- CTA Mid-Section -->
-        <div class="cta-section">
-            <div class="container">
-                <h2>Ready to Get 3× More Jobs Online?</h2>
-                <p>Join 150+ Australian tradies who transformed their business with TradieSpark</p>
-                <a href="#contact" class="btn btn-large" style="background: var(--accent); color: var(--white); box-shadow: var(--shadow-xl);">Get Your Free Quote Now →</a>
-            </div>
-        </div>
+                            <div class="form-group">
+                                <label for="businessName">Business name <span class="required">*</span></label>
+                                <input type="text" id="businessName" name="business_name" required placeholder="Smith's Plumbing">
+                                <p class="form-error" id="businessNameError">Please enter your business name.</p>
+                            </div>
 
-        <!-- Testimonials -->
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-badge">Reviews</span>
-                    <h2>What Aussie Tradies Are Saying</h2>
-                    <p class="section-subtitle">Real feedback from real tradies who've grown their business with us</p>
-                </div>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                        <p class="testimonial-text">"Got 3 new jobs in my first week after going live! The website looks professional and my phone hasn't stopped ringing. Best investment I've made for my plumbing business in 15 years."</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">DT</div>
-                            <div class="testimonial-info">
-                                <div class="testimonial-name">Dave Thompson</div>
-                                <div class="testimonial-role">Plumber • Penrith NSW</div>
+                            <div class="form-group">
+                                <label for="email">Email address <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required placeholder="john@smithplumbing.com.au">
+                                <p class="form-error" id="emailError">Please enter a valid email address.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone number <span class="required">*</span></label>
+                                <input type="tel" id="phone" name="phone" required placeholder="0412 345 678">
+                                <p class="form-error" id="phoneError">Please enter a valid Australian phone number.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="suburb">Suburb <span class="required">*</span></label>
+                                <input type="text" id="suburb" name="suburb" required placeholder="Parramatta">
+                                <p class="form-error" id="suburbError">Please enter your suburb.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tradeType">Type of trade <span class="required">*</span></label>
+                                <select id="tradeType" name="trade_type" required>
+                                    <option value="">Select your trade...</option>
+                                    <option value="Plumber">Plumber</option>
+                                    <option value="Electrician">Electrician</option>
+                                    <option value="Builder">Builder</option>
+                                    <option value="Roofer">Roofer</option>
+                                    <option value="Landscaper">Landscaper</option>
+                                    <option value="Carpenter">Carpenter</option>
+                                    <option value="Painter">Painter</option>
+                                    <option value="HVAC">HVAC</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <p class="form-error" id="tradeTypeError">Please select your trade type.</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                        <p class="testimonial-text">"Finally a web company that understands tradies! No confusing jargon, just straight talk. The site was ready in 4 days and I'm already ranking #1 on Google for my suburb. Competitors are asking how I did it."</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">SC</div>
-                            <div class="testimonial-info">
-                                <div class="testimonial-name">Sarah Chen</div>
-                                <div class="testimonial-role">Electrician • Parramatta NSW</div>
+
+                        <!-- ===== STEP 2: YOUR PACKAGE ===== -->
+                        <div class="form-step" data-step="2">
+                            <h3>Your Package</h3>
+
+                            <div class="form-group">
+                                <label>Which package? <span class="required">*</span></label>
+                                <div class="radio-cards" id="packageCards">
+                                    <label class="radio-card">
+                                        <input type="radio" name="package" value="Starter — $990" required>
+                                        <div class="radio-card-name">Starter</div>
+                                        <div class="radio-card-price">$990</div>
+                                        <div class="radio-card-desc">1-page website</div>
+                                    </label>
+                                    <label class="radio-card">
+                                        <input type="radio" name="package" value="Core — $1,590">
+                                        <div class="radio-card-name">Core</div>
+                                        <div class="radio-card-price">$1,590</div>
+                                        <div class="radio-card-desc">3-page website</div>
+                                    </label>
+                                    <label class="radio-card">
+                                        <input type="radio" name="package" value="Pro — $2,290">
+                                        <div class="radio-card-name">Pro</div>
+                                        <div class="radio-card-price">$2,290</div>
+                                        <div class="radio-card-desc">5-page website</div>
+                                    </label>
+                                    <label class="radio-card">
+                                        <input type="radio" name="package" value="Makeover — $1,490">
+                                        <div class="radio-card-name">Makeover</div>
+                                        <div class="radio-card-price">$1,490</div>
+                                        <div class="radio-card-desc">Redesign existing site</div>
+                                    </label>
+                                </div>
+                                <p class="form-error" id="packageError">Please select a package.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Domain &amp; hosting <span class="required">*</span></label>
+                                <div class="radio-cards" id="hostingCards">
+                                    <label class="radio-card">
+                                        <input type="radio" name="hosting" value="I'll handle it myself — Free" required>
+                                        <div class="radio-card-name">I'll handle it myself</div>
+                                        <div class="radio-card-price">Free</div>
+                                    </label>
+                                    <label class="radio-card">
+                                        <input type="radio" name="hosting" value="Handle it for me — +$100">
+                                        <div class="radio-card-name">Handle it for me</div>
+                                        <div class="radio-card-price">+$100</div>
+                                    </label>
+                                </div>
+                                <p class="form-error" id="hostingError">Please select a hosting option.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Do you have an existing website? <span class="required">*</span></label>
+                                <div class="radio-cards" id="existingWebsiteCards">
+                                    <label class="radio-card">
+                                        <input type="radio" name="existing_website" value="Yes" required>
+                                        <div class="radio-card-name">Yes</div>
+                                    </label>
+                                    <label class="radio-card">
+                                        <input type="radio" name="existing_website" value="No">
+                                        <div class="radio-card-name">No</div>
+                                    </label>
+                                </div>
+                                <p class="form-error" id="existingWebsiteError">Please select an option.</p>
+                            </div>
+
+                            <!-- Conditional: existing website URL -->
+                            <div class="conditional-field" id="existingUrlField">
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label for="existingUrl">Enter your current website URL</label>
+                                    <input type="url" id="existingUrl" name="existing_url" placeholder="https://yoursite.com.au">
+                                </div>
+                            </div>
+
+                            <!-- Conditional: Makeover info box -->
+                            <div class="conditional-field" id="makeoverInfo">
+                                <div class="info-box">
+                                    <strong>Heads up:</strong> Makeover requires an existing domain and hosting. If you don't have these, consider the Starter package instead.
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                        <p class="testimonial-text">"TradieSpark made the whole process dead easy. They understood exactly what I needed without me having to explain tradie stuff. Now I look as professional online as my roofing work is. Worth every cent."</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">MO</div>
-                            <div class="testimonial-info">
-                                <div class="testimonial-name">Mike O'Brien</div>
-                                <div class="testimonial-role">Roofer • Blacktown NSW</div>
+
+                        <!-- ===== STEP 3: YOUR BUSINESS ===== -->
+                        <div class="form-step" data-step="3">
+                            <h3>Your Business</h3>
+
+                            <div class="form-group">
+                                <label for="businessDesc">Describe your business in a few sentences <span class="required">*</span></label>
+                                <textarea id="businessDesc" name="business_description" required placeholder="e.g. Family-run plumbing business in Penrith. 12 years operating. Emergency repairs, hot water systems, bathroom renos."></textarea>
+                                <p class="form-error" id="businessDescError">Please describe your business.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="services">Your main services, one per line <span class="required">*</span></label>
+                                <textarea id="services" name="services" required placeholder="Emergency repairs&#10;Hot water systems&#10;Blocked drains"></textarea>
+                                <p class="form-error" id="servicesError">Please list your main services.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="serviceAreas">Your main service areas <span class="required">*</span></label>
+                                <input type="text" id="serviceAreas" name="service_areas" required placeholder="e.g. Penrith, Blacktown, Parramatta">
+                                <p class="form-error" id="serviceAreasError">Please enter your service areas.</p>
                             </div>
                         </div>
+
+                        <!-- ===== STEP 4: DESIGN ===== -->
+                        <div class="form-step" data-step="4">
+                            <h3>Design</h3>
+
+                            <div class="form-group">
+                                <label>Upload your logo <span style="color: var(--gray-400); font-weight: 400;">(optional)</span></label>
+                                <div class="upload-area" id="logoUpload">
+                                    <div class="upload-icon">&#128196;</div>
+                                    <p><span class="upload-cta">Click to upload</span> or drag and drop</p>
+                                    <p>.jpg .png .pdf .svg</p>
+                                </div>
+                                <div class="upload-previews" id="logoPreviews"></div>
+                                <p class="form-hint">No logo? No worries &mdash; we'll create a simple text logo.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Upload your best job photos <span class="required">*</span></label>
+                                <div class="upload-area" id="photosUpload">
+                                    <div class="upload-icon">&#128247;</div>
+                                    <p><span class="upload-cta">Click to upload</span> up to 15 photos</p>
+                                    <p>.jpg .png &mdash; before/after shots work great</p>
+                                </div>
+                                <div class="upload-previews" id="photosPreviews"></div>
+                                <p class="form-error" id="photosError">Please upload at least one photo of your work.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="colours">Preferred colours <span style="color: var(--gray-400); font-weight: 400;">(optional)</span></label>
+                                <input type="text" id="colours" name="colours" placeholder="e.g. Blue and white, match my van, I don't mind">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="refSites">Websites you like the look of <span style="color: var(--gray-400); font-weight: 400;">(optional)</span></label>
+                                <input type="text" id="refSites" name="reference_websites" placeholder="Paste 1-2 URLs of sites you like the look of">
+                            </div>
+                        </div>
+
+                        <!-- ===== STEP 5: FINISHING UP ===== -->
+                        <div class="form-step" data-step="5">
+                            <h3>Finishing Up</h3>
+
+                            <div class="form-group">
+                                <label>Optional add-ons</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="addon_ai_chat" value="AI Chat Widget — $590">
+                                        <div class="checkbox-label">
+                                            <strong>AI Chat Widget &mdash; $590 setup + ~$29/month to provider</strong>
+                                            <span>Smart chat that captures leads 24/7, even while you're on the tools.</span>
+                                        </div>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="addon_care_plan" value="Monthly Care Plan — $79/month">
+                                        <div class="checkbox-label">
+                                            <strong>Monthly Care Plan &mdash; $79/month</strong>
+                                            <span>We handle all updates, security, and support.</span>
+                                        </div>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="addon_google_business" value="Google Business Setup — $149">
+                                        <div class="checkbox-label">
+                                            <strong>Google Business Setup &mdash; $149 one-time</strong>
+                                            <span>Full setup and optimisation. We set it up, you own it.</span>
+                                        </div>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="addon_rush" value="Rush Delivery — +$250">
+                                        <div class="checkbox-label">
+                                            <strong>Rush Delivery &mdash; +$250</strong>
+                                            <span>Done in 2 days instead of 5.</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="hearAbout">How did you hear about us? <span class="required">*</span></label>
+                                <select id="hearAbout" name="referral_source" required>
+                                    <option value="">Select one...</option>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="Airtasker">Airtasker</option>
+                                    <option value="Google">Google</option>
+                                    <option value="Word of mouth">Word of mouth</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <p class="form-error" id="hearAboutError">Please tell us how you heard about us.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="anythingElse">Anything else we should know? <span style="color: var(--gray-400); font-weight: 400;">(optional)</span></label>
+                                <textarea id="anythingElse" name="anything_else" placeholder="Any special requests, things you don't want, or anything else about your business."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Form Navigation -->
+                        <div class="form-nav">
+                            <button type="button" class="btn btn-back" id="prevBtn" style="display: none;">Back</button>
+                            <button type="button" class="btn btn-primary" id="nextBtn">Continue &rarr;</button>
+                            <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">Get My Website &rarr;</button>
+                        </div>
+                    </form>
+
+                    <!-- Success Message -->
+                    <div class="form-success" id="formSuccess">
+                        <div class="success-icon">&#127881;</div>
+                        <h3>Beauty! We've got your details.</h3>
+                        <p>Check your email &mdash; your deposit invoice will arrive within 2 hours. Once that's paid, we'll kick off your build straight away.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Pricing -->
-<section id="pricing" class="section" style="background: var(--gray-100);">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-badge">Transparent Pricing</span>
-            <h2>Simple Packages, No Hidden Fees</h2>
-            <p class="section-subtitle">Choose the package that's right for your tradie business. All prices in AUD, GST included.</p>
-        </div>
-        <div class="pricing-grid">
-            <!-- STARTER PACKAGE -->
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <h3 class="pricing-name">Starter</h3>
-                    <p class="pricing-pages">1-Page Website</p>
-                </div>
-                <div class="pricing-price">
-                    <span class="pricing-amount">$1,190</span>
-                    <span class="pricing-currency"> AUD</span>
-                </div>
-                <ul class="pricing-features">
-                    <li>Mobile-friendly design</li>
-                    <li>One-tap calling buttons</li>
-                    <li>Contact form integration</li>
-                    <li>Basic local SEO setup</li>
-                    <li>Google Business help</li>
-                    <li>3-5 day turnaround</li>
-                    <li>1 free revision</li>
-                </ul>
-                <a href="#contact" class="btn btn-secondary" style="width: 100%;">Get Started →</a>
-                
-                <!-- STRIPE PAYMENT SECTION -->
-                <div style="margin-top: 24px; padding-top: 24px; border-top: 2px solid var(--gray-200);">
-                    <p style="font-size: 13px; font-weight: 700; color: var(--concrete); text-align: center; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px;">🔒 Pay Securely via Stripe</p>
-                    <div style="display: grid; gap: 10px;">
-                        <a href="https://buy.stripe.com/5kQ28sd8AbBj86OaGh5Rm00" target="_blank" class="btn" style="background: linear-gradient(135deg, #635BFF, #7A73FF); color: white; font-size: 14px; padding: 12px 20px; text-transform: none; letter-spacing: 0; min-height: 44px;">
-                            Pay 50% Deposit ($595)
-                        </a>
-                        <a href="https://buy.stripe.com/eVqdRa7OgdJr5YG15H5Rm05" target="_blank" class="btn" style="background: linear-gradient(135deg, #635BFF, #7A73FF); color: white; font-size: 14px; padding: 12px 20px; text-transform: none; letter-spacing: 0; min-height: 44px;">
-                            Pay Final 50% ($595)
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PRO PACKAGE (MOST POPULAR) -->
-            <div class="pricing-card popular">
-                <span class="popular-badge">Most Popular</span>
-                <div class="pricing-header">
-                    <h3 class="pricing-name">Core</h3>
-                    <p class="pricing-pages">3-Page Website</p>
-                </div>
-                <div class="pricing-price">
-                    <span class="pricing-amount">$1,790</span>
-                    <span class="pricing-currency"> AUD</span>
-                </div>
-                <ul class="pricing-features">
-                    <li>Everything in Starter, plus:</li>
-                    <li>Photo gallery (20 images)</li>
-                    <li>Services page</li>
-                    <li>About/Team page</li>
-                    <li>Google reviews integration</li>
-                    <li>Advanced local SEO</li>
-                    <li>2 free revisions</li>
-                </ul>
-                <a href="#contact" class="btn btn-primary" style="width: 100%;">Get Started →</a>
-                
-                <!-- STRIPE PAYMENT SECTION -->
-                <div style="margin-top: 24px; padding-top: 24px; border-top: 2px solid var(--gray-200);">
-                    <p style="font-size: 13px; font-weight: 700; color: var(--concrete); text-align: center; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px;">🔒 Pay Securely via Stripe</p>
-                    <div style="display: grid; gap: 10px;">
-                        <a href="https://buy.stripe.com/fZu6oI1pS48R86Og0B5Rm01" target="_blank" class="btn" style="background: linear-gradient(135deg, #635BFF, #7A73FF); color: white; font-size: 14px; padding: 12px 20px; text-transform: none; letter-spacing: 0; min-height: 44px;">
-                            Pay 50% Deposit ($895)
-                        </a>
-                        <a href="https://buy.stripe.com/7sY7sMecEcFncn415H5Rm02" target="_blank" class="btn" style="background: linear-gradient(135deg, #635BFF, #7A73FF); color: white; font-size: 14px; padding: 12px 20px; text-transform: none; letter-spacing: 0; min-height: 44px;">
-                            Pay Final 50% ($895)
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PRO PACKAGE -->
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <h3 class="pricing-name">Pro</h3>
-                    <p class="pricing-pages">5-Page Website</p>
-                </div>
-                <div class="pricing-price">
-                    <span class="pricing-amount">$2,490</span>
-                    <span class="pricing-currency"> AUD</span>
-                </div>
-                <ul class="pricing-features">
-                    <li>Everything in Core, plus:</li>
-                    <li>Unlimited photo gallery</li>
-                    <li>Blog setup (3 posts)</li>
-                    <li>Service area pages</li>
-                    <li>Premium SEO package</li>
-                    <li>Social media integration</li>
-                    <li>3 free revisions</li>
-                </ul>
-                <a href="#contact" class="btn btn-secondary" style="width: 100%;">Get Started →</a>
-                
-                <!-- STRIPE PAYMENT SECTION -->
-                <div style="margin-top: 24px; padding-top: 24px; border-top: 2px solid var(--gray-200);">
-                    <p style="font-size: 13px; font-weight: 700; color: var(--concrete); text-align: center; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px;">🔒 Pay Securely via Stripe</p>
-                    <div style="display: grid; gap: 10px;">
-                        <a href="https://buy.stripe.com/cNicN63y07l3dr88y95Rm03" target="_blank" class="btn" style="background: linear-gradient(135deg, #635BFF, #7A73FF); color: white; font-size: 14px; padding: 12px 20px; text-transform: none; letter-spacing: 0; min-height: 44px;">
-                            Pay 50% Deposit ($1,245)
-                        </a>
-                        <a href="https://buy.stripe.com/eVqfZi5G89tb1Iq4hT5Rm04" target="_blank" class="btn" style="background: linear-gradient(135deg, #635BFF, #7A73FF); color: white; font-size: 14px; padding: 12px 20px; text-transform: none; letter-spacing: 0; min-height: 44px;">
-                            Pay Final 50% ($1,245)
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-        <!-- About/Founder -->
-        <section class="section">
+        <!-- ==================== FAQ ==================== -->
+        <section class="section" id="faq">
             <div class="container">
-                <div class="about-content">
-                    <div class="founder-image">
-                        <div class="founder-icon">👨‍💼</div>
-                    </div>
-                    <div class="about-text">
-                        <span class="section-badge">Our Story</span>
-                        <h2>Built by a Tradie, For Tradies</h2>
-                        <p>
-                            <strong>G'day! I'm Gaby, founder of TradieSpark.</strong> After working in the trades for 10 years, I saw too many top-quality tradies losing jobs to competitors simply because they didn't have a proper website or showed up poorly in Google searches.
-                        </p>
-                        <p>
-                            I built TradieSpark because <strong>generic web agencies don't understand the tradie business.</strong> They use fancy jargon, charge outrageous fees, take forever to deliver, and create websites that look good but don't actually get you jobs.
-                        </p>
-                        <p>
-                            <strong>We're different.</strong> We speak your language, we understand your customers, and we know exactly what makes a tradie website successful. No BS, no complicated tech talk – just honest, quality websites that get you more jobs.
-                        </p>
-                        <div class="guarantee-box">
-                            <h3>🛡️ Our 100% Satisfaction Guarantee</h3>
-                            <p>If you're not completely happy with your website for any reason, we'll refund every single dollar. No questions asked. No fine print. That's how confident we are that you'll love what we build.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ -->
-        <section class="section" style="background: var(--gray-100);">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-badge">FAQ</span>
-                    <h2>Common Questions About Our Tradie Websites</h2>
-                    <p class="section-subtitle">Everything you need to know before getting started</p>
+                <div class="section-header reveal">
+                    <h2>Frequently Asked Questions</h2>
                 </div>
                 <div class="faq-list">
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            <span>How long does it really take to build my website?</span>
-                            <span class="faq-icon">+</span>
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>How long does it actually take?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
-                        <div class="faq-answer">
-                            Most websites are live within 3-5 business days from when you provide your content (photos, business details, etc.). We start building as soon as you're ready. Rush delivery available if you need it faster!
+                        <div class="faq-answer" role="region">
+                            <div class="faq-answer-inner">5 business days from when your deposit is paid and your form is fully submitted with photos. Need it faster? Add Rush Delivery for $250 and we'll get it done in 2 days.</div>
                         </div>
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            <span>Do I need any technical skills or web knowledge?</span>
-                            <span class="faq-icon">+</span>
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Do I need to do anything technical?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
-                        <div class="faq-answer">
-                            Not at all! That's the whole point. We handle everything technical. You just provide your business info, photos of your work, and any specific requirements. We do the rest. It's that simple.
+                        <div class="faq-answer" role="region">
+                            <div class="faq-answer-inner">Not at all. Fill the form, upload your photos, approve the design. That's it. We handle everything else.</div>
                         </div>
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            <span>What about SEO? Will I actually show up on Google?</span>
-                            <span class="faq-icon">+</span>
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Who pays for domain and hosting?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
-                        <div class="faq-answer">
-                            Yes! All our websites include local SEO optimization specifically for tradies. We'll help you rank for searches like "plumber near me" and "electrician [your suburb]". We also assist with Google Business Profile setup and optimization, which is crucial for local rankings.
+                        <div class="faq-answer" role="region">
+                            <div class="faq-answer-inner">You do &mdash; it's your website and you own everything. Option A: buy it yourself (~$10/month hosting, ~$15/year domain &mdash; we tell you exactly what to get). Option B: pay us $100 once and we set it all up for you. You own the account and renew it yourself each year.</div>
                         </div>
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>What if I already have a website?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer" role="region">
+                            <div class="faq-answer-inner">Choose the Makeover package. We redesign your existing site from scratch. You'll need to have your own domain and hosting already &mdash; if you don't, go with Starter instead.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">
                             <span>What if I don't like the website?</span>
-                            <span class="faq-icon">+</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
-                        <div class="faq-answer">
-                            We offer free revisions with every package (1-3 depending on package), and if you're still not satisfied, we have a 100% money-back guarantee. Your satisfaction is our #1 priority. In 3 years, we've only had 2 refund requests out of 150+ websites.
+                        <div class="faq-answer" role="region">
+                            <div class="faq-answer-inner">Every package includes revision rounds (1&ndash;3 depending on your package). Send all your feedback in one email and we'll make the changes. If you're still not happy after revisions, we'll refund you in full.</div>
                         </div>
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            <span>Can I update the website myself later?</span>
-                            <span class="faq-icon">+</span>
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>What's the AI Chat Widget add-on?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
-                        <div class="faq-answer">
-                            Absolutely! We can add a simple content management system if you want to make updates yourself. Or we offer affordable monthly maintenance plans ($79/month) where we handle all updates, new photos, content changes, etc. for you.
+                        <div class="faq-answer" role="region">
+                            <div class="faq-answer-inner">A smart chat that sits on your website, answers common questions automatically, and captures leads 24/7 &mdash; even while you're on the tools. We set it up and train it on your business for a one-time $590 fee. It then runs on a third-party service that costs around $29/month, billed directly to you by the provider.</div>
                         </div>
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            <span>What happens after my website goes live?</span>
-                            <span class="faq-icon">+</span>
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>What happens after my site goes live?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
-                        <div class="faq-answer">
-                            We provide free support for 30 days after launch to fix any issues or make minor tweaks. After that, you can choose our care plan ($79/month) for ongoing updates, security, performance monitoring, and unlimited support. Most tradies choose this to keep their site fresh.
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            <span>Do you write the website content or do I have to?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            We write all the content! You just tell us about your business, what services you offer, and your service areas. We'll write professional, SEO-optimized content that actually gets customers to call you. No homework required on your end.
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            <span>Why are you cheaper than other web agencies?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            We're not cheaper – we're better value. Other agencies charge $5K-$10K because they have fancy offices, sales teams, and work on complex corporate projects. We specialize ONLY in tradie websites, use proven templates we've perfected over 150+ sites, and work efficiently. You get the same quality for a fraction of the price.
+                        <div class="faq-answer" role="region">
+                            <div class="faq-answer-inner">You get 30 days of free support for any minor fixes. After that, manage it yourself (WordPress is easy) or join our Care Plan at $79/month and we'll handle all updates, security, and support.</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Form -->
-        <section id="contact" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-badge">Get Started</span>
-                    <h2>Get Your Free Website Quote</h2>
-                    <p class="section-subtitle">Tell us about your tradie business and we'll send you a custom quote within 24 hours</p>
-                </div>
-                <div class="contact-form">
-                    <div class="success-message" id="successMsg">
-                        ✓ Thanks mate! We'll call you within 24 hours to discuss your website.
-                    </div>
-                    <div class="error-message" id="errorMsg">
-                        Please fill in all required fields correctly.
-                    </div>
-                    
-                    <form id="contactForm" action="https://formspree.io/f/xovkkogj" method="POST">
-                        <div class="form-group">
-                            <label for="name">Your Name <span class="required">*</span></label>
-                            <input type="text" id="name" name="name" required placeholder="John Smith">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone Number <span class="required">*</span></label>
-                            <input type="tel" id="phone" name="phone" required placeholder="0412 345 678">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" required placeholder="john@example.com">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="suburb">Suburb/Area <span class="required">*</span></label>
-                            <input type="text" id="suburb" name="suburb" required placeholder="Parramatta">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="trade">Type of Trade <span class="required">*</span></label>
-                            <select id="trade" name="trade" required>
-                                <option value="">Select Your Trade</option>
-                                <option value="plumbing">Plumbing</option>
-                                <option value="electrical">Electrical</option>
-                                <option value="building">Building/Construction</option>
-                                <option value="roofing">Roofing</option>
-                                <option value="landscaping">Landscaping</option>
-                                <option value="carpentry">Carpentry</option>
-                                <option value="painting">Painting</option>
-                                <option value="hvac">HVAC/Air Conditioning</option>
-                                <option value="other">Other Trade</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="package">Preferred Package</label>
-                            <select id="package" name="package">
-                                <option value="">Select a Package</option>
-                                <option value="starter">Starter - $800</option>
-                                <option value="pro">Pro - $1,200 (Most Popular)</option>
-                                <option value="premium">Premium - $1,500</option>
-                                <option value="unsure">Not Sure Yet</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Tell Us About Your Business</label>
-                            <textarea id="message" name="message" placeholder="e.g., I'm a plumber in Western Sydney looking to get more emergency callouts and rank better on Google..."></textarea>
-                        </div>
-                        
-                        <input type="hidden" name="_subject" value="New TradieSpark Quote Request">
-                        
-                        <button type="submit" class="btn btn-primary btn-large" style="width: 100%;" id="submitBtn">
-                            Get My Free Quote →
-                        </button>
-                    </form>
-                    
-                    <div style="text-align: center; margin-top: var(--space-6); color: var(--steel); font-size: 14px; font-weight: 600;">
-                        <p><strong>ABN:</strong> 72 847 046 578</p>
-                        <p style="margin-top: var(--space-3);">Or call us directly: <a href="tel:0483838090" style="color: var(--accent); font-weight: 800; text-decoration: none;">0483 838 090</a></p>
-                        <p style="margin-top: var(--space-3); font-size: 13px;">Mon-Fri: 8am-6pm • Sat: 9am-2pm AEST</p>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <!-- Footer -->
+    <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>⚡ TradieSpark</h3>
-                    <p>Professional websites built for Australian tradies. Get online in 5 days and start winning more jobs.</p>
-                    <p style="margin-top: var(--space-4);"><strong>ABN:</strong> 72 847 046 578</p>
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">&#9889;</span>
+                        <span>TradieSpark</span>
+                    </div>
+                    <p>Professional websites for Australian tradies. From form to live website in 5 days.</p>
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
                         <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
                         <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#contact">Get Quote</a></li>
+                        <li><a href="#intake">Get My Website</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Service Areas</h3>
-                    <ul>
-                        <li><a href="#">Parramatta</a></li>
-                        <li><a href="#">Blacktown</a></li>
-                        <li><a href="#">Penrith</a></li>
-                        <li><a href="#">Liverpool</a></li>
-                        <li><a href="#">Campbelltown</a></li>
-                        <li><a href="#">All of Sydney</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p><strong>Phone:</strong><br><a href="tel:0483838090">0483 838 090</a></p>
-                    <p><strong>Email:</strong><br><a href="mailto:hello@tradiespark.com.au">hello@tradiespark.com.au</a></p>
-                    <p><strong>Hours:</strong><br>Mon-Fri: 8am-6pm<br>Sat: 9am-2pm AEST</p>
+                <div class="footer-contact">
+                    <h4 class="footer-heading">Contact</h4>
+                    <p><a href="mailto:hello@tradiespark.com.au">hello@tradiespark.com.au</a></p>
+                    <p>Mon&ndash;Fri 8am&ndash;6pm AEST</p>
+                    <p>Sat 9am&ndash;2pm AEST</p>
+                    <p style="margin-top: var(--space-4);">ABN: 72 847 046 578</p>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>© 2025 TradieSpark. Built for Aussie Tradies. ABN: 72 847 046 578</p>
+                <p>&copy; 2026 TradieSpark. All rights reserved.</p>
+                <p>Professional Websites for Australian Tradies in 5 Days</p>
             </div>
         </div>
     </footer>
 
     <!-- Mobile Sticky CTA -->
-    <a href="#contact" class="mobile-sticky-cta">Get Free Quote →</a>
+    <div class="sticky-cta" id="stickyCta" aria-label="Get your website">
+        <a href="#intake" class="btn btn-primary">Get My Website &rarr;</a>
+        <button class="close-sticky" id="closeSticky" aria-label="Dismiss">&times;</button>
+    </div>
 
-    <script>
-        // Form Submission
-        const form = document.getElementById('contactForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const successMsg = document.getElementById('successMsg');
-        const errorMsg = document.getElementById('errorMsg');
-
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            successMsg.classList.remove('show');
-            errorMsg.classList.remove('show');
-            
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-            
-            const formData = new FormData(form);
-            
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-                
-                if (response.ok) {
-                    successMsg.classList.add('show');
-                    form.reset();
-                    
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'generate_lead', {
-                            'event_category': 'Form',
-                            'event_label': 'Quote Request'
-                        });
-                    }
-                    
-                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                errorMsg.textContent = 'Sorry mate, something went wrong. Please call us at 0483 838 090.';
-                errorMsg.classList.add('show');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Get My Free Quote →';
-            }
-        });
-
-        // Phone Formatting
-        document.getElementById('phone').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            let formatted = '';
-            
-            if (value.startsWith('04')) {
-                if (value.length <= 4) formatted = value;
-                else if (value.length <= 7) formatted = value.slice(0,4) + ' ' + value.slice(4);
-                else formatted = value.slice(0,4) + ' ' + value.slice(4,7) + ' ' + value.slice(7,10);
-            } else {
-                if (value.length <= 2) formatted = value;
-                else if (value.length <= 6) formatted = value.slice(0,2) + ' ' + value.slice(2);
-                else formatted = value.slice(0,2) + ' ' + value.slice(2,6) + ' ' + value.slice(6,10);
-            }
-            
-            e.target.value = formatted;
-        });
-
-        // FAQ Toggle
-        function toggleFAQ(button) {
-            const item = button.closest('.faq-item');
-            const wasActive = item.classList.contains('active');
-            
-            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-            
-            if (!wasActive) {
-                item.classList.add('active');
-            }
-        }
-
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href === '#') return;
-                
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Track Phone Clicks
-        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
-            link.addEventListener('click', function() {
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'phone_call', {
-                        'event_category': 'Contact',
-                        'event_label': 'Phone Click'
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

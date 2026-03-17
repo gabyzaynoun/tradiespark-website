@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spark Right Electrical — Licensed Electricians, Western Sydney</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --dark: #111111;
+      --dark-light: #1A1A1A;
+      --dark-card: #222222;
+      --yellow: #FFD60A;
+      --yellow-dark: #E6C009;
+      --yellow-glow: rgba(255,214,10,0.15);
+      --white: #FFFFFF;
+      --gray-50: #FAFAFA;
+      --gray-100: #F4F4F5;
+      --gray-200: #E4E4E7;
+      --gray-400: #A1A1AA;
+      --gray-600: #52525B;
+      --gray-800: #27272A;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: var(--gray-800);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    /* ── Header ── */
+    .header {
+      background: var(--dark);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-bolt {
+      background: var(--yellow);
+      color: var(--dark);
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+    .header-nav { display: flex; gap: 28px; align-items: center; }
+    .header-nav a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .header-nav a:hover { color: white; }
+    .header-cta {
+      background: var(--yellow);
+      color: var(--dark);
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .header-cta:hover { background: var(--yellow-dark); transform: translateY(-1px); }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--dark);
+      padding: 80px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(255,214,10,0.04) 0%, transparent 60%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--yellow-glow);
+      border: 1px solid rgba(255,214,10,0.3);
+      color: var(--yellow);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      color: white;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .hero h1 .highlight {
+      color: var(--yellow);
+      position: relative;
+    }
+    .hero p {
+      color: rgba(255,255,255,0.6);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-yellow {
+      background: var(--yellow);
+      color: var(--dark);
+      font-weight: 700;
+      box-shadow: 0 4px 20px rgba(255,214,10,0.25);
+    }
+    .btn-yellow:hover { background: var(--yellow-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,214,10,0.35); }
+    .btn-ghost {
+      background: transparent;
+      color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.4); color: white; }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+    .hero-card {
+      background: var(--dark-card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 40px 32px;
+      width: 100%;
+      max-width: 380px;
+    }
+    .hero-card-stat {
+      text-align: center;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .hero-card-stat:last-child { border-bottom: none; }
+    .hero-card-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--yellow);
+    }
+    .hero-card-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 4px;
+    }
+
+    /* ── Trust Bar ── */
+    .trust-bar {
+      background: var(--dark-light);
+      padding: 20px 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .trust-items {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.55);
+    }
+    .trust-item .check { color: var(--yellow); font-weight: 700; }
+
+    /* ── Services ── */
+    .services { padding: 80px 0; background: var(--gray-50); }
+    .section-eyebrow {
+      color: var(--yellow-dark);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: var(--gray-800);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      color: var(--gray-600);
+      font-size: 1.05rem;
+      max-width: 550px;
+      margin-bottom: 48px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .service-card {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.25s;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+      border-color: var(--yellow);
+    }
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--yellow-glow);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--gray-800);
+    }
+    .service-card p {
+      color: var(--gray-600);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    /* ── Process ── */
+    .process { padding: 80px 0; }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .process-step { text-align: center; position: relative; }
+    .process-num {
+      width: 48px;
+      height: 48px;
+      background: var(--dark);
+      color: var(--yellow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin: 0 auto 16px;
+    }
+    .process-step h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .process-step p {
+      font-size: 0.85rem;
+      color: var(--gray-600);
+      line-height: 1.5;
+    }
+
+    /* ── Gallery ── */
+    .gallery-section {
+      padding: 80px 0;
+      background: var(--dark);
+    }
+    .gallery-section .section-title { color: white; }
+    .gallery-section .section-desc { color: rgba(255,255,255,0.5); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .gallery-item {
+      aspect-ratio: 4/3;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .gallery-item:hover { transform: scale(1.03); }
+    .gallery-item .bg {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+    .gallery-item .label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 12px 16px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      color: white;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    /* ── Reviews ── */
+    .reviews { padding: 80px 0; background: var(--gray-50); }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .review-card {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .review-stars { color: var(--yellow); font-size: 1rem; margin-bottom: 12px; letter-spacing: 2px; }
+    .review-text {
+      font-size: 0.95rem;
+      color: var(--gray-600);
+      line-height: 1.65;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+    .review-author { font-size: 0.85rem; font-weight: 700; color: var(--gray-800); }
+    .review-location { font-size: 0.8rem; color: var(--gray-400); }
+
+    /* ── Contact ── */
+    .contact { padding: 80px 0; }
+    .contact-wrapper {
+      background: var(--dark);
+      border-radius: 24px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      color: white;
+    }
+    .contact-left h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .contact-left p {
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .contact-detail {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .contact-detail-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(255,214,10,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .contact-detail-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .contact-detail-value {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      width: 100%;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      color: white;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: rgba(255,255,255,0.3); }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--yellow);
+    }
+    .contact-form select { appearance: none; }
+    .contact-form select option { background: var(--dark); color: white; }
+    .contact-form textarea { resize: vertical; min-height: 80px; }
+    .contact-form .submit-btn {
+      background: var(--yellow);
+      color: var(--dark);
+      border: none;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .contact-form .submit-btn:hover { background: var(--yellow-dark); }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--dark);
+      padding: 40px 0 20px;
+      color: rgba(255,255,255,0.4);
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+    }
+    .footer a { color: var(--yellow); text-decoration: none; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .header-nav { display: none; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .contact-wrapper { grid-template-columns: 1fr; padding: 32px; }
+    }
+
+    /* ── Demo Banner ── */
+    .demo-banner {
+      background: #FF6B35;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .demo-banner a { color: white; text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <div class="demo-banner">
+    This is a demo website built by <a href="/">TradieSpark</a> — Pro Package ($2,290)
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <a href="#" class="logo">
+        <span class="logo-bolt">⚡</span> Spark Right
+      </a>
+      <nav class="header-nav">
+        <a href="#services">Services</a>
+        <a href="#process">How We Work</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="header-cta">⚡ Get a Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">⚡ Licensed Electrical Contractors</div>
+          <h1>Western Sydney's Most <span class="highlight">Trusted Electricians</span></h1>
+          <p>Residential & commercial electrical services across Greater Western Sydney. Level 2 ASP certified. On time, on budget, and done right the first time.</p>
+          <div class="hero-btns">
+            <a href="#contact" class="btn btn-yellow">Get a Free Quote →</a>
+            <a href="tel:0400000000" class="btn btn-ghost">📞 0400 000 000</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="hero-card-stat">
+              <div class="hero-card-number">20+</div>
+              <div class="hero-card-label">Years in Business</div>
+            </div>
+            <div class="hero-card-stat">
+              <div class="hero-card-number">5,000+</div>
+              <div class="hero-card-label">Jobs Completed</div>
+            </div>
+            <div class="hero-card-stat">
+              <div class="hero-card-number">4.9★</div>
+              <div class="hero-card-label">Google Rating (180+ Reviews)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-items">
+        <div class="trust-item"><span class="check">✓</span> Level 2 ASP Certified</div>
+        <div class="trust-item"><span class="check">✓</span> Fully Licensed & Insured</div>
+        <div class="trust-item"><span class="check">✓</span> Free Quotes</div>
+        <div class="trust-item"><span class="check">✓</span> Clean & Tidy Guarantee</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-eyebrow">Our Services</div>
+      <h2 class="section-title">Electrical Services for Home & Business</h2>
+      <p class="section-desc">From a single power point to a full commercial fit-out — no job is too big or too small for our qualified team.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">💡</div>
+          <div>
+            <h3>Lighting Design & Install</h3>
+            <p>LED downlights, pendant lights, outdoor lighting — we design and install it all.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔌</div>
+          <div>
+            <h3>Power Points & Wiring</h3>
+            <p>New power points, USB outlets, data cabling and full rewires for older homes.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">⚡</div>
+          <div>
+            <h3>Switchboard Upgrades</h3>
+            <p>Safety switches, circuit breakers, and full switchboard replacements to meet current standards.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏗️</div>
+          <div>
+            <h3>Commercial Electrical</h3>
+            <p>Office fit-outs, retail lighting, warehouse wiring — we handle commercial projects of any scale.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">☀️</div>
+          <div>
+            <h3>Solar Panel Installation</h3>
+            <p>CEC-accredited solar installations. Reduce your power bills with a system designed for your home.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔋</div>
+          <div>
+            <h3>EV Charger Installation</h3>
+            <p>Dedicated EV charging points for home and business. All brands supported, safety certified.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛡️</div>
+          <div>
+            <h3>Safety Inspections</h3>
+            <p>Pre-purchase electrical inspections, compliance certificates, and safety audits.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🆘</div>
+          <div>
+            <h3>Emergency Electrical</h3>
+            <p>Power outages, sparking outlets, burning smells — call us 24/7 for emergency response.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-eyebrow">How We Work</div>
+      <h2 class="section-title">Simple Process, Quality Results</h2>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-num">1</div>
+          <h3>Get in Touch</h3>
+          <p>Call us or fill out the form. We'll discuss your needs and arrange an inspection.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">2</div>
+          <h3>Free Quote</h3>
+          <p>We provide a detailed, written quote with no hidden costs or surprises.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">3</div>
+          <h3>Expert Work</h3>
+          <p>Our licensed electricians complete the job to the highest safety standards.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">4</div>
+          <h3>Final Check</h3>
+          <p>We test everything, clean up, and walk you through the completed work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-eyebrow" style="color: var(--yellow)">Our Work</div>
+      <h2 class="section-title">Recent Projects</h2>
+      <p class="section-desc">From new homes to heritage rewires — here's a look at some of our recent work across Western Sydney.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div class="bg" style="background: linear-gradient(135deg, #1a1a2e, #2d3148);">💡</div>
+          <div class="label">LED Downlight Install — Parramatta</div>
+        </div>
+        <div class="gallery-item">
+          <div class="bg" style="background: linear-gradient(135deg, #2d3148, #1a1a2e);">⚡</div>
+          <div class="label">Switchboard Upgrade — Blacktown</div>
+        </div>
+        <div class="gallery-item">
+          <div class="bg" style="background: linear-gradient(135deg, #1a2e1a, #2d4831);">☀️</div>
+          <div class="label">Solar System — Penrith</div>
+        </div>
+        <div class="gallery-item">
+          <div class="bg" style="background: linear-gradient(135deg, #2e1a1a, #483131);">🏗️</div>
+          <div class="label">Commercial Fit-out — Liverpool</div>
+        </div>
+        <div class="gallery-item">
+          <div class="bg" style="background: linear-gradient(135deg, #2e2e1a, #484831);">🔋</div>
+          <div class="label">EV Charger — Castle Hill</div>
+        </div>
+        <div class="gallery-item">
+          <div class="bg" style="background: linear-gradient(135deg, #1a1a2e, #31314a);">🔌</div>
+          <div class="label">Full Rewire — Baulkham Hills</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="section-eyebrow">What Our Clients Say</div>
+      <h2 class="section-title">5-Star Rated Across Western Sydney</h2>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Had the whole house rewired and new switchboard installed. Clean, professional, and finished ahead of schedule. Can't recommend enough."</p>
+          <div class="review-author">Mark T.</div>
+          <div class="review-location">Penrith</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Spark Right installed our solar system and it was seamless from quote to completion. Already saving $200+ a quarter on electricity."</p>
+          <div class="review-author">Sarah & Ben</div>
+          <div class="review-location">Glenmore Park</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Emergency callout at 10pm for a tripped safety switch. Arrived in 25 minutes. Professional, honest, and fair pricing."</p>
+          <div class="review-author">James W.</div>
+          <div class="review-location">Blacktown</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-left">
+          <h2>Let's Get Your Project Started</h2>
+          <p>Whether it's a quick fix or a full electrical project, we're here to help. Get in touch for a free, no-obligation quote.</p>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📞</div>
+            <div>
+              <div class="contact-detail-label">Phone</div>
+              <div class="contact-detail-value">0400 000 000</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📧</div>
+            <div>
+              <div class="contact-detail-label">Email</div>
+              <div class="contact-detail-value">info@sparkrightelectrical.com.au</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📍</div>
+            <div>
+              <div class="contact-detail-label">Service Area</div>
+              <div class="contact-detail-value">Greater Western Sydney</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">🕐</div>
+            <div>
+              <div class="contact-detail-label">Hours</div>
+              <div class="contact-detail-value">Mon–Fri 7am–5pm | 24/7 Emergency</div>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form">
+          <input type="text" placeholder="Your name">
+          <input type="tel" placeholder="Phone number">
+          <input type="email" placeholder="Email address">
+          <select>
+            <option>What do you need?</option>
+            <option>Lighting</option>
+            <option>Power Points / Wiring</option>
+            <option>Switchboard Upgrade</option>
+            <option>Solar Installation</option>
+            <option>EV Charger</option>
+            <option>Commercial Work</option>
+            <option>Safety Inspection</option>
+            <option>Emergency</option>
+            <option>Other</option>
+          </select>
+          <textarea placeholder="Tell us about your project..."></textarea>
+          <button type="submit" class="submit-btn">⚡ Send Quote Request</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span>© 2026 Spark Right Electrical. All rights reserved. Lic #EC12345</span>
+        <span>Website by <a href="/">TradieSpark</a></span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
