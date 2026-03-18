@@ -13,7 +13,7 @@
     emailjs: {
       serviceID: 'service_rv0g64q',
       templateID: 'template_zmkps99',
-      publicKey: 'lEmk1ZUaQ2U8lIIlL'
+      publicKey: 'lEmk1ZUaQ2U8llIlL'
     },
     cloudinary: {
       cloudName: 'dyqqr7ipc',
