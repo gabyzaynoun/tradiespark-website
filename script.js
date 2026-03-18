@@ -48,6 +48,11 @@
     initABTest();
     initPricingCounters();
     initHeroParallax();
+
+    // Initialize EmailJS early so it's ready when the form submits
+    if (typeof emailjs !== 'undefined') {
+      emailjs.init(CONFIG.emailjs.publicKey);
+    }
   }
 
   // ==================== STICKY HEADER ====================
@@ -417,19 +422,14 @@
             var customerName = formData.get('full_name') || 'there';
             var customerEmail = formData.get('email') || '';
             if (customerEmail) {
-              try {
-                emailjs.init(CONFIG.emailjs.publicKey);
-                emailjs.send(CONFIG.emailjs.serviceID, CONFIG.emailjs.templateID, {
-                  from_name: customerName,
-                  email: customerEmail
-                }).then(function() {
-                  console.log('EmailJS: confirmation sent to ' + customerEmail);
-                }).catch(function (err) {
-                  console.warn('EmailJS send failed:', err);
-                });
-              } catch (e) {
-                console.warn('EmailJS init failed:', e);
-              }
+              emailjs.send(CONFIG.emailjs.serviceID, CONFIG.emailjs.templateID, {
+                from_name: customerName,
+                email: customerEmail
+              }).then(function() {
+                console.log('EmailJS: confirmation sent to ' + customerEmail);
+              }).catch(function (err) {
+                console.warn('EmailJS send failed:', err);
+              });
             }
           }
 
