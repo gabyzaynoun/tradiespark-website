@@ -417,12 +417,19 @@
             var customerName = formData.get('full_name') || 'there';
             var customerEmail = formData.get('email') || '';
             if (customerEmail) {
-              emailjs.send(CONFIG.emailjs.serviceID, CONFIG.emailjs.templateID, {
-                from_name: customerName,
-                email: customerEmail
-              }, CONFIG.emailjs.publicKey).catch(function () {
-                // Silent fail - form already submitted successfully
-              });
+              try {
+                emailjs.init(CONFIG.emailjs.publicKey);
+                emailjs.send(CONFIG.emailjs.serviceID, CONFIG.emailjs.templateID, {
+                  from_name: customerName,
+                  email: customerEmail
+                }).then(function() {
+                  console.log('EmailJS: confirmation sent to ' + customerEmail);
+                }).catch(function (err) {
+                  console.warn('EmailJS send failed:', err);
+                });
+              } catch (e) {
+                console.warn('EmailJS init failed:', e);
+              }
             }
           }
 
