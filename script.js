@@ -419,6 +419,8 @@
 
           // Send confirmation email to customer via EmailJS
           if (typeof emailjs !== 'undefined') {
+            // Ensure EmailJS is initialized (safe to call multiple times)
+            emailjs.init(CONFIG.emailjs.publicKey);
             var customerName = formData.get('full_name') || 'there';
             var customerEmail = formData.get('email') || '';
             if (customerEmail) {
