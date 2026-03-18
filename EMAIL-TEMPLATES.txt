@@ -1,0 +1,298 @@
+============================================================
+  TRADIESPARK — CLIENT EMAIL TEMPLATES
+  Copy-paste these from Gmail. Replace [BRACKETS] with details.
+  Last updated: 18 March 2026
+============================================================
+
+
+================================================================
+EMAIL 1: DEPOSIT INVOICE
+Send: Within 2 hours of receiving intake form
+================================================================
+
+SUBJECT: Your TradieSpark Website — Deposit Invoice
+
+G'day [CLIENT NAME],
+
+Thanks for choosing TradieSpark! We've reviewed your submission and everything looks great.
+
+To kick off your [PACKAGE NAME] website build, here's your 50% deposit invoice:
+
+Package: [PACKAGE NAME]
+Total: [TOTAL PRICE]
+Deposit (50%): [DEPOSIT AMOUNT]
+Payment link: [DEPOSIT LINK]
+
+Once the deposit is paid, we'll start your build straight away. Your website will be ready within 5 business days (or 2 days if you selected Rush Delivery).
+
+If you have any questions, just reply to this email.
+
+Cheers,
+Gaby | TradieSpark
+tradiespark.com.au
+
+
+--- QUICK REFERENCE: Copy the right link ---
+
+Starter ($990 total) — Deposit $495:
+https://buy.stripe.com/3cI4gAgkMcFnaeWeWx5Rm06
+
+Core ($1,590 total) — Deposit $795:
+https://buy.stripe.com/bJeaEY6Kc5CV72K3dP5Rm07
+
+Pro ($2,290 total) — Deposit $1,145:
+https://buy.stripe.com/eVq9AU1pSbBjbj06q15Rm08
+
+Makeover ($1,490 total) — Deposit $745:
+https://buy.stripe.com/14A4gAd8AcFn9aS4hT5Rm09
+
+================================================================
+
+
+================================================================
+EMAIL 2: BUILD STARTED (after deposit paid)
+Send: Same day deposit clears
+================================================================
+
+SUBJECT: We've started building your website!
+
+G'day [CLIENT NAME],
+
+Great news — your deposit has been received and we've started building your [PACKAGE NAME] website!
+
+Here's what's happening:
+- Our dev team is setting up your site right now
+- We're using the info, photos, and logo you submitted in the form
+- You'll receive a preview link within 5 business days
+
+You don't need to do anything right now. We'll email you as soon as the preview is ready for your review.
+
+Cheers,
+Gaby | TradieSpark
+tradiespark.com.au
+
+
+================================================================
+
+
+================================================================
+EMAIL 3: PREVIEW READY (website built, needs approval)
+Send: When dev delivers the site
+================================================================
+
+SUBJECT: Your website preview is ready!
+
+G'day [CLIENT NAME],
+
+Your TradieSpark website is ready for review! Here's your preview link:
+
+[PREVIEW URL]
+
+Please take a look and let me know:
+1. Are you happy with the design and layout?
+2. Any text changes needed?
+3. Any photos you'd like swapped?
+
+You get one round of revisions included, so send all your feedback in one email and we'll get it sorted.
+
+Just reply to this email with your feedback (or let me know if it's perfect as-is!).
+
+Cheers,
+Gaby | TradieSpark
+tradiespark.com.au
+
+
+================================================================
+
+
+================================================================
+EMAIL 4: REVISIONS DONE (if client requested changes)
+Send: After applying feedback
+================================================================
+
+SUBJECT: Your revisions are done — take a look!
+
+G'day [CLIENT NAME],
+
+We've made all the changes you requested. Here's the updated preview:
+
+[PREVIEW URL]
+
+If everything looks good, just reply with "approved" and we'll move to the final step.
+
+Cheers,
+Gaby | TradieSpark
+tradiespark.com.au
+
+
+================================================================
+
+
+================================================================
+EMAIL 5: FINAL PAYMENT (after client approves)
+Send: Immediately after client approves
+================================================================
+
+SUBJECT: Your website is approved — final payment
+
+G'day [CLIENT NAME],
+
+Awesome — glad you love it! Here's the final payment to get your website live:
+
+Package: [PACKAGE NAME]
+Final payment (50%): [FINAL AMOUNT]
+Payment link: [FINAL PAYMENT LINK]
+
+Once paid, we'll push your website live within 24 hours and send you all the login details.
+
+Cheers,
+Gaby | TradieSpark
+tradiespark.com.au
+
+
+--- QUICK REFERENCE: Copy the right link ---
+
+Starter — Final $495:
+https://buy.stripe.com/7sYcN601O2J8606q15Rm0a
+
+Core — Final $795:
+https://buy.stripe.com/4gM14o8SkeNvbj051X5Rm0b
+
+Pro — Final $1,145:
+https://buy.stripe.com/dRm4gA3y06gZ4UC7u55Rm0c
+
+Makeover — Final $745:
+https://buy.stripe.com/9B64gAb0s5cV0EmgOB5Rm0d
+
+================================================================
+
+
+================================================================
+EMAIL 6: HANDOVER (website is live)
+Send: After final payment + site goes live
+================================================================
+
+SUBJECT: Your website is LIVE!
+
+G'day [CLIENT NAME],
+
+Your website is officially live! Here are your details:
+
+Website: [WEBSITE URL]
+WordPress login: [WP LOGIN URL]
+Username: [USERNAME]
+Password: [PASSWORD]
+
+A few things to know:
+- Your site is hosted for free on Netlify — no monthly hosting fees
+- Your domain ([DOMAIN]) will need to be renewed yearly (around $15/year)
+- If you purchased the Monthly Care Plan, we'll handle updates and backups for you
+
+If you ever need changes or have questions, just email us anytime.
+
+Thanks for choosing TradieSpark — enjoy your new website!
+
+Cheers,
+Gaby | TradieSpark
+tradiespark.com.au
+
+
+================================================================
+
+
+================================================================
+EMAIL 7: ADD-ON INVOICE (if client selected add-ons)
+Send: With deposit invoice or separately
+================================================================
+
+SUBJECT: Your TradieSpark Add-On Invoice
+
+G'day [CLIENT NAME],
+
+Here's the invoice for your selected add-on(s):
+
+[LIST ADD-ONS AND PRICES]
+- AI Chat Widget: $590 + ~$29/mo to provider
+- Monthly Care Plan: $79/mo
+- Google Business Setup: $149
+- Rush Delivery: +$250
+
+Total add-ons: [TOTAL]
+
+These will be added to your final payment, or you can pay now via bank transfer:
+
+BSB: 067 873
+Account: 2010 0299
+Account name: [YOUR ACCOUNT NAME]
+Reference: [CLIENT BUSINESS NAME]
+
+Cheers,
+Gaby | TradieSpark
+tradiespark.com.au
+
+
+================================================================
+
+
+============================================================
+  FIVERR DEV BRIEF TEMPLATE
+  Copy-paste this when forwarding a job to your developer
+============================================================
+
+SUBJECT: New TradieSpark Build — [CLIENT BUSINESS NAME]
+
+Hi [DEV NAME],
+
+New website build. Details below:
+
+PACKAGE: [Starter / Core / Pro / Makeover]
+DEADLINE: [DATE — 5 business days from deposit]
+
+CLIENT INFO:
+- Business: [BUSINESS NAME]
+- Trade: [TRADE TYPE]
+- Location: [SUBURB/AREA]
+- Services: [LIST OF SERVICES]
+- Service areas: [AREAS THEY COVER]
+
+CONTENT:
+- Business description: [FROM FORM]
+- Photos: [CLOUDINARY URLS FROM FORMSPREE EMAIL]
+- Logo: [CLOUDINARY URL OR "no logo provided"]
+- Preferred colours: [FROM FORM OR "no preference"]
+- Reference sites: [FROM FORM OR "none"]
+
+REQUIREMENTS:
+- WordPress site
+- Mobile responsive
+- [PACKAGE-SPECIFIC FEATURES]
+- Contact form
+- Google Maps embed
+- SEO basics (title tags, meta descriptions)
+
+Please send me the preview link when ready.
+
+Thanks!
+
+
+============================================================
+  CLIENT PIPELINE TRACKER
+  Simple status tracking — use a Google Sheet or Notion
+============================================================
+
+For each client, track:
+1. Name / Business / Trade
+2. Package chosen
+3. Date form submitted
+4. Date deposit invoice sent
+5. Date deposit paid
+6. Date brief sent to dev
+7. Date preview received from dev
+8. Date preview sent to client
+9. Date client approved
+10. Date final invoice sent
+11. Date final payment received
+12. Date site went live
+13. Date handover email sent
+
+============================================================
