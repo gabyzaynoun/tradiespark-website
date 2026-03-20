@@ -187,7 +187,7 @@ A few things to know:
 - Your site is hosted on our managed WordPress hosting — no extra hosting fees from you
 - Your domain ([DOMAIN]) will need to be renewed yearly (around $15/year)
 - You can log in to wp-admin anytime to update text, photos, or add new pages
-- If you purchased the Monthly Care Plan, we'll handle updates and backups for you
+- You can manage your site yourself — WordPress is easy to use
 
 If you ever need changes or have questions, just email us anytime.
 
@@ -214,8 +214,6 @@ Here's the invoice for your selected add-on(s):
 
 [LIST ADD-ONS AND PRICES]
 - AI Chat Widget: $590 + ~$29/mo to provider
-- Monthly Care Plan: $79/mo
-- Google Business Setup: $149
 - Rush Delivery: +$250
 
 Total add-ons: [TOTAL]
