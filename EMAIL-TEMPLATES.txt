@@ -184,8 +184,9 @@ Username: [USERNAME]
 Password: [PASSWORD]
 
 A few things to know:
-- Your site is hosted for free on Netlify — no monthly hosting fees
+- Your site is hosted on our managed WordPress hosting — no extra hosting fees from you
 - Your domain ([DOMAIN]) will need to be renewed yearly (around $15/year)
+- You can log in to wp-admin anytime to update text, photos, or add new pages
 - If you purchased the Monthly Care Plan, we'll handle updates and backups for you
 
 If you ever need changes or have questions, just email us anytime.
