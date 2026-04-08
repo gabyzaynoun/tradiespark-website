@@ -1,7 +1,7 @@
 ============================================================
   TRADIESPARK — CLIENT EMAIL TEMPLATES
   Copy-paste these from Gmail. Replace [BRACKETS] with details.
-  Last updated: 18 March 2026
+  Last updated: 8 April 2026
 ============================================================
 
 
@@ -45,6 +45,18 @@ https://buy.stripe.com/eVq9AU1pSbBjbj06q15Rm08
 
 Makeover ($1,490 total) — Deposit $745:
 https://buy.stripe.com/14A4gAd8AcFn9aS4hT5Rm09
+
+--- FOUNDING CLIENT RATE (first 3 clients only) ---
+$700 flat rate (normally $990+ Starter)
+In exchange for: honest testimonial + portfolio permission
+Deposit: $350 / Final: $350
+[ADD STRIPE LINK WHEN CREATED]
+
+--- PACKAGE DESCRIPTIONS ---
+Starter ($990): 5-page site (mobile-first, SEO, contact form, Google Maps, click-to-call)
+Core ($1,590): 8-page site (everything in Starter + photo gallery, Google Reviews, Google Business Profile setup)
+Pro ($2,290): 12-page site (everything in Core + booking system, blog, advanced local SEO, priority support)
+Makeover ($1,490): Full redesign with Core-level features
 
 ================================================================
 
@@ -184,12 +196,16 @@ Username: [USERNAME]
 Password: [PASSWORD]
 
 A few things to know:
-- Your site is hosted on our managed WordPress hosting — no extra hosting fees from you
-- Your domain ([DOMAIN]) will need to be renewed yearly (around $15/year)
+- Your site is hosted on our managed WordPress hosting as part of your Care Plan
+- Your Care Plan: [CARE PLAN NAME] — [CARE PLAN PRICE]/month
+- Your domain ([DOMAIN]) is registered in your name — you own it. Renew yearly (~$15/year)
 - You can log in to wp-admin anytime to update text, photos, or add new pages
-- You can manage your site yourself — WordPress is easy to use
 
-If you ever need changes or have questions, just email us anytime.
+If you ever want to leave:
+- We export your full site as a backup file
+- We transfer your domain to you same-day
+- We cancel your subscription immediately
+- No lock-in, no hassle — your site is yours
 
 Thanks for choosing TradieSpark — enjoy your new website!
 
@@ -229,6 +245,37 @@ Cheers,
 Gaby | TradieSpark
 tradiespark.com.au
 
+
+================================================================
+
+
+================================================================
+EMAIL 8: CARE PLAN — RECURRING SETUP
+Send: When site goes live (with Email 6 or separately)
+================================================================
+
+SUBJECT: Your TradieSpark Care Plan — [PLAN NAME]
+
+G'day [CLIENT NAME],
+
+Your website is live and your Care Plan is now active!
+
+Plan: [Hosting Only / Basic Care / Active Care]
+Monthly fee: [AMOUNT]/month
+What's included: [PLAN FEATURES]
+
+Your first monthly invoice will be sent via Stripe. You can change or cancel your plan anytime — just email us.
+
+Quick reminder: your domain ([DOMAIN]) is registered in your name. If you ever want to move on, we'll export your full site and transfer your domain same-day. No lock-in.
+
+Cheers,
+Gaby | TradieSpark
+tradiespark.com.au
+
+--- CARE PLAN STRIPE LINKS ---
+Hosting Only ($20/month): [ADD STRIPE SUBSCRIPTION LINK]
+Basic Care ($29/month): [ADD STRIPE SUBSCRIPTION LINK]
+Active Care ($59/month): [ADD STRIPE SUBSCRIPTION LINK]
 
 ================================================================
 
@@ -293,5 +340,7 @@ For each client, track:
 11. Date final payment received
 12. Date site went live
 13. Date handover email sent
+14. Care Plan selected (Hosting/Basic/Active)
+15. Date Care Plan Stripe subscription created
 
 ============================================================

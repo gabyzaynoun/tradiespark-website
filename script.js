@@ -279,7 +279,6 @@
 
     if (step === 2) {
       if (!validateRadio('package', 'packageError')) valid = false;
-      if (!validateRadio('hosting', 'hostingError')) valid = false;
       if (!validateRadio('existing_website', 'existingWebsiteError')) valid = false;
     }
 
